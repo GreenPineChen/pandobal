@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Pandobal Limited · Collateify</title>
-    <meta name="description" content="Pandobal Limited is a Hong Kong based technology company building Collateify — a next‑generation photo organization App.">
+    <meta name="description" content="Pandobal Limited is a Hong Kong based technology company building Collateify and future innovative products.">
     <style>
         * {
             margin: 0;
@@ -14,124 +14,145 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fff;
+            background-color: #ffffff;
             color: #1d1d1f;
             line-height: 1.5;
         }
 
+        /* 布局 */
         .container {
-            max-width: 1080px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 1.5rem 4rem;
+            padding: 0 24px;
         }
 
-        .brand {
-            margin-bottom: 3rem;
+        /* 导航栏 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
             border-bottom: 1px solid #e9e9ef;
-            padding-bottom: 1.75rem;
         }
 
-        .brand h1 {
-            font-size: 2.4rem;
+        .logo {
+            font-size: 1.5rem;
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
+            color: #000;
+            text-decoration: none;
         }
 
-        .sub {
-            font-size: 1.1rem;
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* 语言切换 */
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
             color: #6e6e73;
         }
 
-        .product {
-            margin: 2.5rem 0;
+        .lang-btn.active {
+            background-color: #000;
+            color: #fff;
         }
 
-        .product h2 {
-            font-size: 1.8rem;
+        /* 页面容器 */
+        .page {
+            display: none;
+            padding: 48px 0 64px;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        /* 首页 / 关于 / 产品 / 联系 通用样式 */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
             font-weight: 590;
-            margin-bottom: 1rem;
+            margin: 32px 0 16px;
         }
 
-        .product p {
-            font-size: 1.05rem;
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 590;
+            margin: 24px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
             color: #2c2c2e;
-            margin-bottom: 1rem;
         }
 
-        .badge {
-            background-color: #f5f5f7;
-            display: inline-block;
-            padding: 0.3rem 0.9rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .contact {
+        .contact-block {
             background-color: #f9f9fb;
-            border-radius: 22px;
-            padding: 1.8rem 2rem;
-            margin: 2.5rem 0;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 32px 0;
             border: 1px solid #f0f0f4;
         }
 
-        .contact h3 {
-            font-size: 1.25rem;
-            font-weight: 590;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            margin: 0.6rem 0;
-        }
-
-        .contact a {
-            color: #000;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        .company-info {
-            margin: 2rem 0 1.2rem;
-            font-size: 0.95rem;
-            color: #3a3a3c;
-        }
-
-        hr {
-            margin: 2rem 0;
-            border: none;
-            height: 1px;
-            background-color: #e9e9ef;
+        .address-block {
+            margin: 24px 0;
+            padding: 16px 0;
+            border-top: 1px solid #e9e9ef;
+            border-bottom: 1px solid #e9e9ef;
         }
 
         .footer {
             text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #e9e9ef;
+            margin-top: 32px;
             font-size: 0.8rem;
             color: #8e8e93;
-            margin-top: 2rem;
         }
 
-        .legal-note {
-            font-size: 0.75rem;
-            color: #8e8e93;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 2rem 1.25rem 3rem;
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 16px;
             }
-            .brand h1 {
-                font-size: 1.9rem;
+            .nav-links {
+                justify-content: center;
             }
-            .product h2 {
-                font-size: 1.6rem;
-            }
-            .contact {
-                padding: 1.2rem 1.5rem;
+            h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -140,79 +161,182 @@
 <body>
 <div id="app">
     <div class="container">
-        <div class="brand">
-            <h1>{{ companyName }}</h1>
-            <div class="sub">{{ companySub }}</div>
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <a class="logo" @click="changePage('home')">Pandobal</a>
+            <div class="nav-links">
+                <a @click="changePage('home')">{{ t('home') }}</a>
+                <a @click="changePage('about')">{{ t('about') }}</a>
+                <a @click="changePage('products')">{{ t('products') }}</a>
+                <a @click="changePage('contact')">{{ t('contact') }}</a>
+                <div class="lang-switch">
+                    <button class="lang-btn" :class="{ active: lang === 'en' }" @click="setLang('en')">EN</button>
+                    <button class="lang-btn" :class="{ active: lang === 'zh' }" @click="setLang('zh')">简中</button>
+                    <button class="lang-btn" :class="{ active: lang === 'hk' }" @click="setLang('hk')">繁中</button>
+                </div>
+            </div>
         </div>
 
-        <div class="product">
-            <h2>📱 {{ productName }}</h2>
-            <p>{{ productDesc1 }}</p>
-            <p>{{ productDesc2 }}</p>
-            <div class="badge">{{ statusText }}</div>
+        <!-- 首页 -->
+        <div class="page" :class="{ 'active-page': currentPage === 'home' }">
+            <h1>{{ t('home_title') }}</h1>
+            <p>{{ t('home_desc') }}</p>
+            <p>{{ t('home_collateify') }}</p>
+            <div class="address-block">
+                <strong>📍 {{ t('address_label') }}</strong><br>
+                {{ t('office_address') }}
+            </div>
         </div>
 
-        <div class="contact">
-            <h3>📬 Business Contact</h3>
-            <p>📧 <strong>Email</strong><br>
-                <a :href="'mailto:' + contactEmail">{{ contactEmail }}</a>
-            </p>
-            <p>📞 <strong>Phone</strong><br>
-                {{ contactPhone }}
-            </p>
+        <!-- 关于 -->
+        <div class="page" :class="{ 'active-page': currentPage === 'about' }">
+            <h1>{{ t('about_title') }}</h1>
+            <p>{{ t('about_company') }}</p>
+            <p>{{ t('about_philosophy') }}</p>
+            <p>{{ t('about_future') }}</p>
         </div>
 
-        <div class="company-info">
-            📍 <strong>Registered Office Address (Hong Kong)</strong><br>
-            {{ officeAddress }}
+        <!-- 产品 -->
+        <div class="page" :class="{ 'active-page': currentPage === 'products' }">
+            <h1>{{ t('products_title') }}</h1>
+            <h2>📱 Collateify</h2>
+            <p>{{ t('collateify_desc') }}</p>
+            <p>{{ t('collateify_status') }}</p>
+            <h3>{{ t('future_products_label') }}</h3>
+            <p>{{ t('future_products_desc') }}</p>
         </div>
 
-        <hr />
-
-        <div style="font-size: 0.85rem; color: #444; margin-top: 0.5rem;">
-            <p>✅ <strong>Verifiable business entity</strong><br>
-                {{ legalNote }}</p>
+        <!-- 联系 -->
+        <div class="page" :class="{ 'active-page': currentPage === 'contact' }">
+            <h1>{{ t('contact_title') }}</h1>
+            <div class="contact-block">
+                <p><strong>📧 {{ t('email_label') }}</strong><br>
+                <a :href="'mailto:' + t('contact_email')">{{ t('contact_email') }}</a></p>
+                <p><strong>📞 {{ t('phone_label') }}</strong><br>
+                {{ t('contact_phone') }}</p>
+            </div>
+            <div class="address-block">
+                <strong>🏢 {{ t('registered_address') }}</strong><br>
+                {{ t('office_address') }}
+            </div>
         </div>
 
         <div class="footer">
-            © {{ currentYear }} Pandobal Limited · All rights reserved
-        </div>
-        <div class="legal-note">
-            This website is used for business identity verification and product introduction.
+            © 2025 Pandobal Limited · {{ t('footer_rights') }}
         </div>
     </div>
 </div>
 
 <script>
-    const { createApp, ref } = Vue
+    const { createApp, ref, reactive } = Vue
 
     createApp({
         setup() {
-            const currentYear = new Date().getFullYear()
+            const currentPage = ref('home')
+            const lang = ref('en')
 
-            const companyName = 'Pandobal Limited'
-            const companySub = 'Hong Kong‑based technology company'
-            const productName = 'Collateify'
-            const productDesc1 = 'Collateify is a modern, intelligent photo organizer designed to simplify digital memory management.'
-            const productDesc2 = 'It helps users automatically sort photos by time, location, and events — and quickly decide what to keep or remove.'
-            const statusText = '✦ Under development — coming soon'
-            const contactEmail = 'admin@pandobal.com'
-            const contactPhone = '+852 XXXX XXXX'
-            const officeAddress = `Unit XXX, XX/F, [Your Building Name]\n[Your Street Name], Hong Kong`
-            const legalNote = 'Pandobal Limited is a lawfully registered company in Hong Kong. All information above matches the official company registration record and D‑U‑N‑S profile.'
+            const translations = {
+                en: {
+                    home: 'Home',
+                    about: 'About',
+                    products: 'Products',
+                    contact: 'Contact',
+                    home_title: 'Pandobal Limited',
+                    home_desc: 'A Hong Kong based technology company, building innovative products with user needs at the core.',
+                    home_collateify: 'Collateify is our first product — a smart photo organizer. More products will follow.',
+                    address_label: 'Office Address',
+                    about_title: 'About Pandobal',
+                    about_company: 'Pandobal Limited is a legally registered company in Hong Kong, focused on technology innovation and product development.',
+                    about_philosophy: 'We believe in user‑driven design, long‑term vision, and building software that truly helps people.',
+                    about_future: 'Collateify is just the beginning. We are actively exploring new tools in the digital memory and productivity space.',
+                    products_title: 'Our Products',
+                    collateify_desc: 'Collateify helps users automatically sort photos by time, location, and events — and quickly decide what to keep or delete.',
+                    collateify_status: '✅ Currently under active development — coming soon on iOS and Android.',
+                    future_products_label: 'More products ahead',
+                    future_products_desc: 'Pandobal is committed to continuous innovation. New products will be introduced based on user needs and feedback.',
+                    contact_title: 'Contact Us',
+                    email_label: 'Business Email',
+                    contact_email: 'admin@pandobal.com',
+                    phone_label: 'Phone',
+                    contact_phone: '+852 XXXX XXXX',
+                    registered_address: 'Registered Office (Hong Kong)',
+                    office_address: 'Unit XXX, XX/F, Your Building Name\nYour Street, Hong Kong',
+                    footer_rights: 'All rights reserved'
+                },
+                zh: {
+                    home: '首页',
+                    about: '关于',
+                    products: '产品',
+                    contact: '联系',
+                    home_title: 'Pandobal 有限公司',
+                    home_desc: '一家以用户需求为核心、坚持技术创新的香港科技公司。',
+                    home_collateify: 'Collateify 是我们的第一款产品——智能照片整理工具。更多产品将陆续推出。',
+                    address_label: '办公地址',
+                    about_title: '关于 Pandobal',
+                    about_company: 'Pandobal Limited 是一家在香港合法注册的科技公司，专注于技术研发与产品创新。',
+                    about_philosophy: '我们坚持以用户需求为导向，打造真正对用户有价值的长期产品。',
+                    about_future: 'Collateify 是起点。我们正在探索更多与数字记忆、内容整理相关的创新工具。',
+                    products_title: '我们的产品',
+                    collateify_desc: 'Collateify 帮助用户按时间、地点、事件自动整理照片，并快速决定保留或删除。',
+                    collateify_status: '✅ 开发中 —— 即将上线 iOS / Android。',
+                    future_products_label: '更多产品规划中',
+                    future_products_desc: 'Pandobal 将持续以用户需求为导向，推出更多创新产品。',
+                    contact_title: '联系我们',
+                    email_label: '业务邮箱',
+                    contact_email: 'admin@pandobal.com',
+                    phone_label: '联系电话',
+                    contact_phone: '+852 XXXX XXXX',
+                    registered_address: '公司注册地址（香港）',
+                    office_address: '香港 XXX 大厦 XX 楼 XX 室',
+                    footer_rights: '版权所有'
+                },
+                hk: {
+                    home: '首頁',
+                    about: '關於',
+                    products: '產品',
+                    contact: '聯絡',
+                    home_title: 'Pandobal 有限公司',
+                    home_desc: '一家以用戶需求為核心、堅持技術創新的香港科技公司。',
+                    home_collateify: 'Collateify 是我們的第一款產品——智能照片整理工具。更多產品將陸續推出。',
+                    address_label: '辦公地址',
+                    about_title: '關於 Pandobal',
+                    about_company: 'Pandobal Limited 是一家在香港合法註冊的科技公司，專注於技術研發與產品創新。',
+                    about_philosophy: '我們堅持以用戶需求為導向，打造真正對用戶有價值的長期產品。',
+                    about_future: 'Collateify 是起點。我們正在探索更多與數碼記憶、內容整理相關的創新工具。',
+                    products_title: '我們的產品',
+                    collateify_desc: 'Collateify 幫助用戶按時間、地點、事件自動整理照片，並快速決定保留或刪除。',
+                    collateify_status: '✅ 開發中 —— 即將上線 iOS / Android。',
+                    future_products_label: '更多產品規劃中',
+                    future_products_desc: 'Pandobal 將持續以用戶需求為導向，推出更多創新產品。',
+                    contact_title: '聯絡我們',
+                    email_label: '業務郵箱',
+                    contact_email: 'admin@pandobal.com',
+                    phone_label: '聯絡電話',
+                    contact_phone: '+852 XXXX XXXX',
+                    registered_address: '公司註冊地址（香港）',
+                    office_address: '香港 XXX 大廈 XX 樓 XX 室',
+                    footer_rights: '版權所有'
+                }
+            }
+
+            const t = (key) => {
+                return translations[lang.value][key] || key
+            }
+
+            const setLang = (newLang) => {
+                lang.value = newLang
+            }
+
+            const changePage = (page) => {
+                currentPage.value = page
+            }
 
             return {
-                currentYear,
-                companyName,
-                companySub,
-                productName,
-                productDesc1,
-                productDesc2,
-                statusText,
-                contactEmail,
-                contactPhone,
-                officeAddress,
-                legalNote
+                currentPage,
+                lang,
+                t,
+                setLang,
+                changePage
             }
         }
     }).mount('#app')
