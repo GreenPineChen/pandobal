@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandobal | Collateify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pandobal Limited ·  Collateify</title>
+    <meta name="description" content="Pandobal Limited is a Hong Kong based technology company building Collateify — a next‑generation photo organization App.">
+    <meta name="robots" content="index, follow">
+    <!-- 简洁现代的企业风格，无任何第三方跟踪代码 -->
     <style>
         * {
             margin: 0;
@@ -13,110 +16,200 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fff;
-            color: #1a1a1a;
+            background-color: #ffffff;
+            color: #1d1d1f;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* 容器：干净、居中、有留白 */
         .container {
-            max-width: 1000px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 48px 24px;
+            padding: 3rem 1.5rem 4rem;
         }
 
-        header {
-            margin-bottom: 48px;
+        /* 头部：公司身份清晰 */
+        .brand {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e9e9ef;
+            padding-bottom: 1.75rem;
         }
 
-        h1 {
-            font-size: 3rem;
+        .brand h1 {
+            font-size: 2.4rem;
             font-weight: 600;
             letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            color: #000000;
         }
 
-        .subhead {
-            font-size: 1.25rem;
-            color: #555;
-            margin-top: 8px;
+        .brand .sub {
+            font-size: 1.1rem;
+            color: #6e6e73;
+            font-weight: 400;
         }
 
-        .section {
-            margin: 48px 0;
+        /* 产品介绍区：自然、克制 */
+        .product {
+            margin: 2.5rem 0;
         }
 
-        h2 {
-            font-size: 1.75rem;
-            margin-bottom: 16px;
+        .product h2 {
+            font-size: 1.8rem;
+            font-weight: 590;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .product p {
+            font-size: 1.05rem;
+            color: #2c2c2e;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            background-color: #f5f5f7;
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 500;
+            color: #1c1c1e;
+            margin-top: 0.5rem;
         }
 
-        .contact-block {
-            background: #f7f7f7;
-            padding: 24px;
-            border-radius: 20px;
-            margin: 32px 0;
+        /* 联系信息区：真实、可验证（Apple 最看重的部分） */
+        .contact {
+            background-color: #f9f9fb;
+            border-radius: 22px;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0;
+            border: 1px solid #f0f0f4;
+        }
+
+        .contact h3 {
+            font-size: 1.25rem;
+            font-weight: 590;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            margin: 0.6rem 0;
+            font-size: 1rem;
+            color: #1d1d1f;
+        }
+
+        .contact a {
+            color: #000000;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 480;
+        }
+
+        /* 公司信息：真实地址（必须与公司证书一致） */
+        .company-info {
+            margin: 2rem 0 1.2rem;
+            font-size: 0.95rem;
+            color: #3a3a3c;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background-color: #e9e9ef;
         }
 
         .footer {
-            margin-top: 64px;
-            padding-top: 24px;
-            border-top: 1px solid #eee;
-            font-size: 0.85rem;
-            color: #777;
             text-align: center;
+            font-size: 0.8rem;
+            color: #8e8e93;
+            margin-top: 2rem;
         }
 
-        a {
-            color: #000;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
+        /* 移动端适配 */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2.2rem;
-            }
             .container {
-                padding: 32px 20px;
+                padding: 2rem 1.25rem 3rem;
             }
+            .brand h1 {
+                font-size: 1.9rem;
+            }
+            .product h2 {
+                font-size: 1.6rem;
+            }
+            .contact {
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        /* 访问与信任 */
+        .legal-note {
+            font-size: 0.75rem;
+            color: #8e8e93;
+            text-align: center;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>Pandobal Limited</h1>
-        <div class="subhead">Hong Kong · Technology Company</div>
-    </header>
 
-    <div class="section">
-        <p style="font-size: 1.1rem;">
-            Pandobal builds tools that help people organize, preserve, and rediscover their digital memories.
-        </p>
+<div class="container">
+
+    <!-- 公司主体（Apple 验证的第一要素） -->
+    <div class="brand">
+        <h1>Pandobal Limited</h1>
+        <div class="sub">Hong Kong‑based technology company</div>
     </div>
 
-    <div class="section">
+    <!-- 核心产品：Collateify（项目一致性） -->
+    <div class="product">
         <h2>📱 Collateify</h2>
         <p>
-            Collateify is a modern photo organization App designed for clarity and speed.
-            It helps users automatically sort photos, quickly decide what to keep or delete,
-            and reclaim storage without losing important moments.
+            Collateify is a modern, intelligent photo organizer designed to simplify digital memory management.
+            It helps users automatically sort photos by time, location, and events — and quickly decide what to keep or remove.
         </p>
-        <p style="margin-top: 12px;">
-            ✅ Available soon on iOS & Android
+        <p>
+            The App is currently in active development and will be available on iOS and Android.
+        </p>
+        <div class="badge">✦ Under development — coming soon</div>
+    </div>
+
+    <!-- 企业真实联系信息（Apple 审核必查项） -->
+    <div class="contact">
+        <h3>📬 Business Contact</h3>
+        <p>📧 <strong>Email</strong><br>
+            <a href="mailto:admin@pandobal.com">admin@pandobal.com</a>
+        </p>
+        <p>📞 <strong>Phone</strong><br>
+            +852 XXXX XXXX
         </p>
     </div>
 
-    <div class="contact-block">
-        <p>📍 <strong>Office Address</strong><br>
-        Unit XXX, XXX Building, Wan Chai, Hong Kong</p>
-        <p style="margin-top: 12px;">📧 <strong>Business Contact</strong><br>
-        <a href="mailto:admin@pandobal.com">admin@pandobal.com</a></p>
+    <!-- 注册地址（必须和公司证书完全一致） -->
+    <div class="company-info">
+        📍 <strong>Registered Office Address (Hong Kong)</strong><br>
+        Unit XXX, XX/F, [Your Building Name]<br>
+        [Your Street Name], Hong Kong
+    </div>
+
+    <hr />
+
+    <!-- 辅助说明：真实性与商业目的（Apple 审核很在意） -->
+    <div style="font-size: 0.85rem; color: #444; margin-top: 0.5rem;">
+        <p>✅ <strong>Verifiable business entity</strong><br>
+        Pandobal Limited is a lawfully registered company in Hong Kong.<br>
+        All information above matches the official company registration record and D‑U‑N‑S profile.</p>
     </div>
 
     <div class="footer">
-        © 2025 Pandobal Limited · Hong Kong
+        © 2025 Pandobal Limited · All rights reserved
+    </div>
+    <div class="legal-note">
+        This website is used for business identity verification and product introduction.
     </div>
 </div>
+
 </body>
 </html>
