@@ -47,6 +47,7 @@
             letter-spacing: -0.02em;
             color: #000;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .nav-links {
@@ -69,25 +70,20 @@
             color: #0066cc;
         }
 
-        .lang-switch {
-            display: flex;
-            gap: 8px;
-            margin-left: 8px;
-        }
-
-        .lang-btn {
-            background: none;
-            border: none;
-            font-size: 0.8rem;
-            cursor: pointer;
-            padding: 4px 8px;
+        /* 语言下拉框 */
+        .lang-select {
+            padding: 6px 10px;
+            font-size: 0.85rem;
             border-radius: 8px;
-            color: #6e6e73;
+            border: 1px solid #d9d9df;
+            background-color: #fff;
+            cursor: pointer;
+            font-weight: 500;
         }
 
-        .lang-btn.active {
-            background-color: #000;
-            color: #fff;
+        .lang-select:focus {
+            outline: none;
+            border-color: #0066cc;
         }
 
         /* 区块通用样式 */
@@ -171,11 +167,12 @@
                 <a @click="scrollToSection('company')" :class="{ active: activeSection === 'company' }">{{ t('nav_company') }}</a>
                 <a @click="scrollToSection('products')" :class="{ active: activeSection === 'products' }">{{ t('nav_products') }}</a>
                 <a @click="scrollToSection('contact')" :class="{ active: activeSection === 'contact' }">{{ t('nav_contact') }}</a>
-                <div class="lang-switch">
-                    <button class="lang-btn" :class="{ active: lang === 'en' }" @click="setLang('en')">EN</button>
-                    <button class="lang-btn" :class="{ active: lang === 'zh' }" @click="setLang('zh')">简中</button>
-                    <button class="lang-btn" :class="{ active: lang === 'hk' }" @click="setLang('hk')">繁中</button>
-                </div>
+                <!-- 语言下拉框 -->
+                <select class="lang-select" v-model="selectedLang" @change="changeLang">
+                    <option value="en">English (EN)</option>
+                    <option value="zh">简体中文 (ZH)</option>
+                    <option value="hk">繁體中文 (HK)</option>
+                </select>
             </div>
         </div>
     </div>
@@ -218,13 +215,11 @@
 </div>
 
 <script>
-    const { createApp, ref, onMounted, onUnmounted } = Vue
+    const { createApp, ref, onMounted, onUnmounted, watch } = Vue
 
     createApp({
         setup() {
-            const lang = ref('en')
-            const activeSection = ref('company')
-
+            // 多语言配置（可随时扩展）
             const translations = {
                 en: {
                     nav_company: 'Company',
@@ -300,13 +295,43 @@
                 }
             }
 
-            const t = (key) => translations[lang.value][key] || key
+            // 语言顺序（用于浏览器语言匹配）
+            const langPriority = ['hk', 'zh', 'en']
 
-            const setLang = (newLang) => {
-                lang.value = newLang
-                setTimeout(() => {
-                    updateActiveSection()
-                }, 50)
+            // 获取用户浏览器语言
+            const getBrowserLang = () => {
+                const browserLang = navigator.language || navigator.userLanguage || ''
+                if (browserLang.startsWith('zh') && (browserLang.includes('HK') || browserLang.includes('TW') || browserLang.includes('Hant'))) {
+                    return 'hk'
+                }
+                if (browserLang.startsWith('zh')) {
+                    return 'zh'
+                }
+                return 'en'
+            }
+
+            // 获取初始语言（优先级：localStorage > 浏览器语言 > 默认英文）
+            const getInitialLang = () => {
+                const saved = localStorage.getItem('pandobal_lang')
+                if (saved && translations[saved]) return saved
+                const browserLang = getBrowserLang()
+                if (translations[browserLang]) return browserLang
+                return 'en'
+            }
+
+            const lang = ref(getInitialLang())
+            const selectedLang = ref(lang.value)
+            const activeSection = ref('company')
+
+            const t = (key) => {
+                return translations[lang.value]?.[key] || key
+            }
+
+            const changeLang = () => {
+                lang.value = selectedLang.value
+                localStorage.setItem('pandobal_lang', lang.value)
+                // 切换语言后更新滚动高亮
+                setTimeout(() => updateActiveSection(), 50)
             }
 
             const scrollToSection = (sectionId) => {
@@ -345,9 +370,10 @@
 
             return {
                 lang,
+                selectedLang,
                 activeSection,
                 t,
-                setLang,
+                changeLang,
                 scrollToSection
             }
         }
