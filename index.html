@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Pandobal · Collateify</title>
-    <meta name="description" content="Pandobal Limited is a Hong Kong based technology company building Collateify — a smart photo organizer.">
+    <meta name="description" content="Pandobal is a Hong Kong based technology company. Collateify helps you clean up your photo library while enjoying your memories.">
     <style>
         * {
             margin: 0;
@@ -20,7 +20,6 @@
             scroll-behavior: smooth;
         }
 
-        /* 固定导航栏 */
         .navbar {
             position: sticky;
             top: 0;
@@ -41,13 +40,25 @@
             gap: 16px;
         }
 
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
         .logo {
             font-size: 1.5rem;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: #000;
-            text-decoration: none;
-            cursor: pointer;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #8e8e93;
+            letter-spacing: 0.2px;
         }
 
         .nav-links {
@@ -70,7 +81,6 @@
             color: #0066cc;
         }
 
-        /* 语言下拉框 */
         .lang-select {
             padding: 6px 10px;
             font-size: 0.85rem;
@@ -81,12 +91,6 @@
             font-weight: 500;
         }
 
-        .lang-select:focus {
-            outline: none;
-            border-color: #0066cc;
-        }
-
-        /* 区块通用样式 */
         .section {
             max-width: 1100px;
             margin: 0 auto;
@@ -106,9 +110,10 @@
         }
 
         h2 {
-            font-size: 1.8rem;
-            font-weight: 590;
+            font-size: 2rem;
+            font-weight: 600;
             margin-bottom: 24px;
+            letter-spacing: -0.01em;
         }
 
         h3 {
@@ -121,6 +126,22 @@
             font-size: 1.05rem;
             color: #2c2c2e;
             margin-bottom: 16px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 32px 0 24px;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .feature-item strong {
+            font-size: 1.1rem;
         }
 
         .contact-block {
@@ -150,8 +171,15 @@
             h1 {
                 font-size: 2rem;
             }
+            h2 {
+                font-size: 1.6rem;
+            }
             .section {
                 padding: 64px 20px;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 24px;
             }
         }
     </style>
@@ -159,19 +187,21 @@
 </head>
 <body>
 <div id="app">
-    <!-- 导航栏 -->
     <div class="navbar">
         <div class="nav-container">
-            <a class="logo" @click="scrollToSection('company')">Pandobal</a>
+            <div class="logo-area" @click="scrollToSection('company')">
+                <div class="logo">Pandobal</div>
+                <div class="tagline">Where technology meets humanity</div>
+            </div>
+
             <div class="nav-links">
                 <a @click="scrollToSection('company')" :class="{ active: activeSection === 'company' }">{{ t('nav_company') }}</a>
                 <a @click="scrollToSection('products')" :class="{ active: activeSection === 'products' }">{{ t('nav_products') }}</a>
                 <a @click="scrollToSection('contact')" :class="{ active: activeSection === 'contact' }">{{ t('nav_contact') }}</a>
-                <!-- 语言下拉框 -->
                 <select class="lang-select" v-model="selectedLang" @change="changeLang">
-                    <option value="en">English (EN)</option>
-                    <option value="zh">简体中文 (ZH)</option>
-                    <option value="hk">繁體中文 (HK)</option>
+                    <option value="en">English</option>
+                    <option value="zh">简体中文</option>
+                    <option value="hk">繁體中文</option>
                 </select>
             </div>
         </div>
@@ -180,20 +210,41 @@
     <!-- 公司区块 -->
     <div id="company" class="section">
         <h1>{{ t('company_name') }}</h1>
-        <p>{{ t('company_tagline') }}</p>
-        <p>{{ t('company_mission') }}</p>
-        <p>{{ t('company_values') }}</p>
-        <p style="margin-top: 16px;">✅ {{ t('hk_entity') }}</p>
+        <p style="font-size: 1.2rem; font-weight: 500;">{{ t('brand_positioning') }}</p>
+        <p>{{ t('mission') }}</p>
+        <p><strong>{{ t('values_title') }}</strong><br>{{ t('values') }}</p>
+        <p>{{ t('name_story') }}</p>
+        <p style="margin-top: 24px;">✅ {{ t('hk_entity') }}</p>
     </div>
 
-    <!-- 产品区块 -->
+    <!-- 产品区块：Collateify 完整介绍 -->
     <div id="products" class="section">
-        <h2>📱 {{ t('products_title') }}</h2>
-        <p><strong>{{ t('collateify_name') }}</strong><br>
-        {{ t('collateify_desc') }}</p>
-        <p>{{ t('collateify_status') }}</p>
-        <h3>{{ t('future_label') }}</h3>
-        <p>{{ t('future_products') }}</p>
+        <h2>📱 Collateify</h2>
+        <p style="font-size: 1.2rem;">{{ t('product_tagline') }}</p>
+
+        <h3>{{ t('problem_title') }}</h3>
+        <p>{{ t('problem_desc') }}</p>
+
+        <h3>{{ t('solution_title') }}</h3>
+        <p>{{ t('solution_desc') }}</p>
+
+        <h3>{{ t('how_it_works_title') }}</h3>
+        <p>{{ t('how_it_works_desc') }}</p>
+
+        <h3>{{ t('progress_title') }}</h3>
+        <p>{{ t('progress_desc') }}</p>
+
+        <h3>{{ t('features_title') }}</h3>
+        <div class="feature-grid">
+            <div class="feature-item"><strong>📌 {{ t('feature_bookmark') }}</strong><br>{{ t('feature_bookmark_desc') }}</div>
+            <div class="feature-item"><strong>🧠 {{ t('feature_smart') }}</strong><br>{{ t('feature_smart_desc') }}</div>
+            <div class="feature-item"><strong>📊 {{ t('feature_stats') }}</strong><br>{{ t('feature_stats_desc') }}</div>
+            <div class="feature-item"><strong>✋ {{ t('feature_gesture') }}</strong><br>{{ t('feature_gesture_desc') }}</div>
+        </div>
+
+        <h3>{{ t('why_title') }}</h3>
+        <p>{{ t('why_desc') }}</p>
+        <p style="margin-top: 24px;">✨ {{ t('closing') }}</p>
     </div>
 
     <!-- 联系区块 -->
@@ -215,102 +266,143 @@
 </div>
 
 <script>
-    const { createApp, ref, onMounted, onUnmounted, watch } = Vue
+    const { createApp, ref, onMounted, onUnmounted } = Vue
 
     createApp({
         setup() {
-            // 多语言配置（可随时扩展）
             const translations = {
                 en: {
                     nav_company: 'Company',
                     nav_products: 'Products',
                     nav_contact: 'Contact',
                     company_name: 'Pandobal Limited',
-                    company_tagline: 'A Hong Kong based technology company.',
-                    company_mission: 'We build simple, intelligent tools that help people organize and rediscover their digital memories.',
-                    company_values: 'User-driven · Technology first · Long-term vision.',
+                    brand_positioning: 'Where technology meets humanity.',
+                    mission: 'To enrich people’s lives through thoughtful technology — whether through useful tools, meaningful connections, or new ways of digital experience.',
+                    values_title: 'Our values',
+                    values: 'Thoughtful · Human · Open',
+                    name_story: 'The name “Pandobal” comes from the idea of hoping for and cherishing what truly matters. We build technology that respects people’s time, attention, and digital life.',
                     hk_entity: 'Legally registered company in Hong Kong.',
-                    products_title: 'Products',
-                    collateify_name: 'Collateify — Smart Photo Organizer',
-                    collateify_desc: 'Automatically sort photos by time, location, and events. Quickly decide what to keep or delete.',
-                    collateify_status: '✅ Under active development · Coming soon on iOS & Android',
-                    future_label: 'More products ahead',
-                    future_products: 'Pandobal is committed to continuous innovation. More products will follow based on user needs.',
+                    product_tagline: 'Clean up your photo library — while rediscovering the memories that matter.',
+                    problem_title: 'Too many photos, too much clutter',
+                    problem_desc: 'The thought of organizing everything feels overwhelming, and it’s easy to give up halfway.',
+                    solution_title: 'A simple, fun, stress‑free way',
+                    solution_desc: 'Break your library into small chunks — by month or week. One small period at a time. Then swipe to decide: keep or delete.',
+                    how_it_works_title: 'How it works',
+                    how_it_works_desc: 'Swipe right → keep / Swipe left → delete (left‑hand mode available, switch anytime). View metadata when you need. After finishing a period, review your keeps and deletes one last time, make any adjustments — and you’re done.',
+                    progress_title: 'Progress & flexibility',
+                    progress_desc: 'Completed periods are moved to a “done” list (you can revisit anytime). Need a break? Just leave. The home screen shows a progress ring so you always know how much is left.',
+                    features_title: 'More features',
+                    feature_bookmark: 'Bookmarks',
+                    feature_bookmark_desc: 'Keep the photos you love.',
+                    feature_smart: 'Smart recommendations',
+                    feature_smart_desc: 'On This Day, Recent Memories, Most Loved.',
+                    feature_stats: 'Statistics',
+                    feature_stats_desc: 'See how many photos you’ve reviewed and how much storage you’ve saved.',
+                    feature_gesture: 'Gesture mode',
+                    feature_gesture_desc: 'Left‑hand support, freely switchable.',
+                    why_title: 'Why we built Collateify',
+                    why_desc: 'Your camera roll shouldn’t feel chaotic. You deserve to revisit your good memories — without being distracted by random screenshots, temporary image, or clutter.',
+                    closing: 'That’s exactly why we built Collateify. Hope you enjoy it, and happy organizing 📱',
                     contact_title: 'Contact',
                     email_label: 'Business Email',
                     contact_email: 'admin@pandobal.com',
                     phone_label: 'Phone',
-                    contact_phone: '+852 XXXX XXXX',
+                    contact_phone: '+852 4609 2743',
                     address_label: 'Registered Office (Hong Kong)',
-                    office_address: 'Unit XXX, XX/F, Your Building Name, Hong Kong',
+                    office_address: 'FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG',
                     footer_rights: 'All rights reserved'
                 },
                 zh: {
                     nav_company: '公司',
                     nav_products: '产品',
                     nav_contact: '联系',
-                    company_name: 'Pandobal 有限公司',
-                    company_tagline: '一家香港科技公司。',
-                    company_mission: '我们致力于通过简单智能的工具，帮助用户整理和重新发现数字记忆。',
-                    company_values: '用户驱动 · 技术优先 · 长期主义',
+                    company_name: '香港盼多宝有限公司',
+                    brand_positioning: '科技与人文的交汇点。',
+                    mission: '通过有思考的科技，丰富人们的生活 —— 无论是有用的工具、有意义的连接，还是新的数字体验方式。',
+                    values_title: '我们的价值观',
+                    values: '有思考力 · 有人文感 · 开放',
+                    name_story: '盼多宝 这个名字，源于“期盼并珍惜真正重要的事物”。我们相信，科技应该尊重人的时间、精力与数字生活。',
                     hk_entity: '香港合法注册公司。',
-                    products_title: '产品',
-                    collateify_name: 'Collateify — 智能照片整理工具',
-                    collateify_desc: '按时间、地点、事件自动分类，快速决定保留或删除。',
-                    collateify_status: '✅ 开发中 · 即将上线 iOS / Android',
-                    future_label: '更多产品规划中',
-                    future_products: 'Pandobal 将持续以用户需求为导向，推出更多产品。',
+                    product_tagline: '清理手机照片，同时重温美好回忆。',
+                    problem_title: '太多照片，太乱',
+                    problem_desc: '一想到整理就很有压力，还容易半途而废。',
+                    solution_title: '简单、有趣、无压力的方式',
+                    solution_desc: '把照片拆成「月」或「周」的小时间段，一次只整理一小块。进入整理界面后，滑动决定：保留什么，删除什么。',
+                    how_it_works_title: '使用方式',
+                    how_it_works_desc: '向右滑 → 保留 / 向左滑 → 删除（支持左手模式，可随时切换）。也可查看元数据。完成一个月后，可以对保留与删除的照片做最后确认，调整完就完成了。',
+                    progress_title: '进度与弹性',
+                    progress_desc: '完成整理的时间段会被折叠到「已完成」列表中（随时可重新访问）。中途想休息也没问题，主画面会显示进度条。',
+                    features_title: '更多功能',
+                    feature_bookmark: '收藏',
+                    feature_bookmark_desc: '保存你想留下的照片。',
+                    feature_smart: '智能推荐',
+                    feature_smart_desc: '那年今日、最近回忆、最受欢迎等。',
+                    feature_stats: '统计数据',
+                    feature_stats_desc: '已整理多少照片、释放多少存储空间。',
+                    feature_gesture: '手势模式',
+                    feature_gesture_desc: '支持左手操作模式，可自由切换。',
+                    why_title: '为什么做 Collateify',
+                    why_desc: '手机相册不该这么混乱。你值得好好回顾美好回忆，而不是被无关截图、临时图片或其他杂物干扰。',
+                    closing: '这就是我们做 Collateify 的原因。希望你喜欢，祝你整理愉快 📱',
                     contact_title: '联系',
                     email_label: '业务邮箱',
                     contact_email: 'admin@pandobal.com',
                     phone_label: '联系电话',
-                    contact_phone: '+852 XXXX XXXX',
+                    contact_phone: '+852 4609 2743',
                     address_label: '公司注册地址（香港）',
-                    office_address: '香港 XXX 大厦 XX 楼 XX 室',
+                    office_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室',
                     footer_rights: '版权所有'
                 },
                 hk: {
                     nav_company: '公司',
                     nav_products: '產品',
                     nav_contact: '聯絡',
-                    company_name: 'Pandobal 有限公司',
-                    company_tagline: '一家香港科技公司。',
-                    company_mission: '我們致力透過簡單智能的工具，幫助用戶整理和重新發現數碼記憶。',
-                    company_values: '用戶驅動 · 技術優先 · 長期主義',
+                    company_name: '香港盼多寶有限公司',
+                    brand_positioning: '科技與人文的交匯點。',
+                    mission: '通過有思考的科技，豐富人們的生活 —— 無論是有用的工具、有意義的連接，還是新的數位體驗方式。',
+                    values_title: '我們的價值觀',
+                    values: '有思考力 · 有人文感 · 開放',
+                    name_story: '盼多寶 這個名字，源於「期盼並珍惜真正重要的事物」。我們相信，科技應該尊重人的時間、精力與數位生活。',
                     hk_entity: '香港合法註冊公司。',
-                    products_title: '產品',
-                    collateify_name: 'Collateify — 智能照片整理工具',
-                    collateify_desc: '按時間、地點、事件自動分類，快速決定保留或刪除。',
-                    collateify_status: '✅ 開發中 · 即將上線 iOS / Android',
-                    future_label: '更多產品規劃中',
-                    future_products: 'Pandobal 將持續以用戶需求為導向，推出更多產品。',
+                    product_tagline: '清理手機照片，同時重溫美好回憶。',
+                    problem_title: '太多照片，太亂',
+                    problem_desc: '一想到整理就很有壓力，還容易半途而廢。',
+                    solution_title: '簡單、有趣、無壓力的方式',
+                    solution_desc: '把照片拆成「月」或「週」的小時間段，一次只整理一小塊。進入整理界面後，滑動決定：保留什麼，刪除什麼。',
+                    how_it_works_title: '使用方式',
+                    how_it_works_desc: '向右滑 → 保留 / 向左滑 → 刪除（支援左手模式，可隨時切換）。也可查看詮釋資料。完成一個月後，可以對保留與刪除的照片做最後確認，調整完就完成了。',
+                    progress_title: '進度與彈性',
+                    progress_desc: '完成整理的時間段會被摺疊到「已完成」列表中（隨時可重新訪問）。中途想休息也沒問題，主畫面會顯示進度環。',
+                    features_title: '更多功能',
+                    feature_bookmark: '收藏',
+                    feature_bookmark_desc: '保存你想留下的照片。',
+                    feature_smart: '智慧推薦',
+                    feature_smart_desc: '那年今日、最近回憶、最受歡迎等。',
+                    feature_stats: '統計數據',
+                    feature_stats_desc: '已整理多少照片、釋放多少儲存空間。',
+                    feature_gesture: '手勢模式',
+                    feature_gesture_desc: '支援左手操作模式，可自由切換。',
+                    why_title: '為什麼做 Collateify',
+                    why_desc: '手機相簿不該這麼混亂。你值得好好回顧美好回憶，而不是被無關截圖、臨時圖片或其他雜物干擾。',
+                    closing: '這就是我們做 Collateify 的原因。希望你喜歡，祝你整理愉快 📱',
                     contact_title: '聯絡',
                     email_label: '業務郵箱',
                     contact_email: 'admin@pandobal.com',
                     phone_label: '聯絡電話',
-                    contact_phone: '+852 XXXX XXXX',
+                    contact_phone: '+852 4609 2743',
                     address_label: '公司註冊地址（香港）',
-                    office_address: '香港 XXX 大廈 XX 樓 XX 室',
+                    office_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室',
                     footer_rights: '版權所有'
                 }
             }
 
-            // 语言顺序（用于浏览器语言匹配）
-            const langPriority = ['hk', 'zh', 'en']
-
-            // 获取用户浏览器语言
             const getBrowserLang = () => {
                 const browserLang = navigator.language || navigator.userLanguage || ''
-                if (browserLang.startsWith('zh') && (browserLang.includes('HK') || browserLang.includes('TW') || browserLang.includes('Hant'))) {
-                    return 'hk'
-                }
-                if (browserLang.startsWith('zh')) {
-                    return 'zh'
-                }
+                if (browserLang.startsWith('zh') && (browserLang.includes('HK') || browserLang.includes('TW') || browserLang.includes('Hant'))) return 'hk'
+                if (browserLang.startsWith('zh')) return 'zh'
                 return 'en'
             }
 
-            // 获取初始语言（优先级：localStorage > 浏览器语言 > 默认英文）
             const getInitialLang = () => {
                 const saved = localStorage.getItem('pandobal_lang')
                 if (saved && translations[saved]) return saved
@@ -323,22 +415,17 @@
             const selectedLang = ref(lang.value)
             const activeSection = ref('company')
 
-            const t = (key) => {
-                return translations[lang.value]?.[key] || key
-            }
+            const t = (key) => translations[lang.value]?.[key] || key
 
             const changeLang = () => {
                 lang.value = selectedLang.value
                 localStorage.setItem('pandobal_lang', lang.value)
-                // 切换语言后更新滚动高亮
                 setTimeout(() => updateActiveSection(), 50)
             }
 
             const scrollToSection = (sectionId) => {
                 const el = document.getElementById(sectionId)
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' })
-                }
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
             }
 
             const updateActiveSection = () => {
