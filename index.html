@@ -112,8 +112,19 @@
         h2 {
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
             letter-spacing: -0.01em;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e9e9ef;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 24px;
         }
 
         h3 {
@@ -217,9 +228,10 @@
         <p style="margin-top: 24px;">✅ {{ t('hk_entity') }}</p>
     </div>
 
-    <!-- 产品区块：Collateify 完整介绍 -->
+    <!-- 产品区块：Collateify 完整介绍 + Coming soon -->
     <div id="products" class="section">
         <h2>📱 Collateify</h2>
+        <div class="badge">{{ t('coming_soon') }}</div>
         <p style="font-size: 1.2rem;">{{ t('product_tagline') }}</p>
 
         <h3>{{ t('problem_title') }}</h3>
@@ -282,6 +294,7 @@
                     values: 'Thoughtful · Human · Open',
                     name_story: 'The name “Pandobal” comes from the idea of hoping for and cherishing what truly matters. We build technology that respects people’s time, attention, and digital life.',
                     hk_entity: 'Legally registered company in Hong Kong.',
+                    coming_soon: 'Coming soon',
                     product_tagline: 'Clean up your photo library — while rediscovering the memories that matter.',
                     problem_title: 'Too many photos, too much clutter',
                     problem_desc: 'The thought of organizing everything feels overwhelming, and it’s easy to give up halfway.',
@@ -301,11 +314,11 @@
                     feature_gesture: 'Gesture mode',
                     feature_gesture_desc: 'Left‑hand support, freely switchable.',
                     why_title: 'Why we built Collateify',
-                    why_desc: 'Your camera roll shouldn’t feel chaotic. You deserve to revisit your good memories — without being distracted by random screenshots, temporary image, or clutter.',
+                    why_desc: 'Your camera roll shouldn’t feel chaotic. You deserve to revisit your good memories — without being distracted by random screenshots, temporary files, or clutter.',
                     closing: 'That’s exactly why we built Collateify. Hope you enjoy it, and happy organizing 📱',
                     contact_title: 'Contact',
                     email_label: 'Business Email',
-                    contact_email: 'admin@pandobal.com',
+                    contact_email: 'hello@pandobal.com',
                     phone_label: 'Phone',
                     contact_phone: '+852 4609 2743',
                     address_label: 'Registered Office (Hong Kong)',
@@ -323,6 +336,7 @@
                     values: '有思考力 · 有人文感 · 开放',
                     name_story: '盼多宝 这个名字，源于“期盼并珍惜真正重要的事物”。我们相信，科技应该尊重人的时间、精力与数字生活。',
                     hk_entity: '香港合法注册公司。',
+                    coming_soon: '即将上线',
                     product_tagline: '清理手机照片，同时重温美好回忆。',
                     problem_title: '太多照片，太乱',
                     problem_desc: '一想到整理就很有压力，还容易半途而废。',
@@ -331,7 +345,7 @@
                     how_it_works_title: '使用方式',
                     how_it_works_desc: '向右滑 → 保留 / 向左滑 → 删除（支持左手模式，可随时切换）。也可查看元数据。完成一个月后，可以对保留与删除的照片做最后确认，调整完就完成了。',
                     progress_title: '进度与弹性',
-                    progress_desc: '完成整理的时间段会被折叠到「已完成」列表中（随时可重新访问）。中途想休息也没问题，主画面会显示进度条。',
+                    progress_desc: '完成整理的时间段会被折叠到「已完成」列表中（随时可重新访问）。中途想休息也没问题，主画面会显示进度环。',
                     features_title: '更多功能',
                     feature_bookmark: '收藏',
                     feature_bookmark_desc: '保存你想留下的照片。',
@@ -342,11 +356,11 @@
                     feature_gesture: '手势模式',
                     feature_gesture_desc: '支持左手操作模式，可自由切换。',
                     why_title: '为什么做 Collateify',
-                    why_desc: '手机相册不该这么混乱。你值得好好回顾美好回忆，而不是被无关截图、临时图片或其他杂物干扰。',
+                    why_desc: '手机相册不该这么混乱。你值得好好回顾美好回忆，而不是被无关截图、临时文件或其他杂物干扰。',
                     closing: '这就是我们做 Collateify 的原因。希望你喜欢，祝你整理愉快 📱',
                     contact_title: '联系',
                     email_label: '业务邮箱',
-                    contact_email: 'admin@pandobal.com',
+                    contact_email: 'hello@pandobal.com',
                     phone_label: '联系电话',
                     contact_phone: '+852 4609 2743',
                     address_label: '公司注册地址（香港）',
@@ -364,6 +378,7 @@
                     values: '有思考力 · 有人文感 · 開放',
                     name_story: '盼多寶 這個名字，源於「期盼並珍惜真正重要的事物」。我們相信，科技應該尊重人的時間、精力與數位生活。',
                     hk_entity: '香港合法註冊公司。',
+                    coming_soon: '即將上線',
                     product_tagline: '清理手機照片，同時重溫美好回憶。',
                     problem_title: '太多照片，太亂',
                     problem_desc: '一想到整理就很有壓力，還容易半途而廢。',
@@ -383,11 +398,11 @@
                     feature_gesture: '手勢模式',
                     feature_gesture_desc: '支援左手操作模式，可自由切換。',
                     why_title: '為什麼做 Collateify',
-                    why_desc: '手機相簿不該這麼混亂。你值得好好回顧美好回憶，而不是被無關截圖、臨時圖片或其他雜物干擾。',
+                    why_desc: '手機相簿不該這麼混亂。你值得好好回顧美好回憶，而不是被無關截圖、臨時文件或其他雜物干擾。',
                     closing: '這就是我們做 Collateify 的原因。希望你喜歡，祝你整理愉快 📱',
                     contact_title: '聯絡',
                     email_label: '業務郵箱',
-                    contact_email: 'admin@pandobal.com',
+                    contact_email: 'hello@pandobal.com',
                     phone_label: '聯絡電話',
                     contact_phone: '+852 4609 2743',
                     address_label: '公司註冊地址（香港）',
