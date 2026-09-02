@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Privacy Policy · Collateify · Pandobal</title>
-    <meta name="description" content="Privacy Policy for Collateify by Pandobal Limited. How we handle photos, permissions, and subscriptions.">
+    <meta id="meta-desc" name="description" content="Privacy Policy for Collateify by Pandobal Limited. Photos stay on your device; what we access, what we do not collect, and how subscriptions work.">
     <meta name="theme-color" content="#FF8B6A">
+    <link rel="canonical" href="https://pandobal.com/privacy/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF8B6A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='18' font-family='system-ui' fill='white' font-weight='600'%3EP%3C/text%3E%3C/svg%3E">
     <style>
         :root {
@@ -85,6 +86,25 @@
         .card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
         .card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; }
         .card p:last-child { margin-bottom: 0; }
+        .card ul {
+            margin: 0 0 12px 1.1em; font-size: 0.95rem; color: var(--text-secondary);
+        }
+        .card ul:last-child { margin-bottom: 0; }
+        .card li { margin-bottom: 6px; }
+        .card li:last-child { margin-bottom: 0; }
+        .data-table {
+            width: 100%; border-collapse: collapse; font-size: 0.88rem;
+            color: var(--text-secondary); margin-top: 4px;
+        }
+        .data-table th, .data-table td {
+            text-align: left; vertical-align: top;
+            padding: 10px 8px; border-bottom: 1px solid var(--border-light);
+        }
+        .data-table th {
+            font-weight: 600; color: var(--text); font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
         .footer {
             text-align: center; padding: 28px 24px 36px; font-size: 0.82rem;
             color: var(--text-muted); border-top: 1px solid var(--border-light);
@@ -93,6 +113,22 @@
         @media (max-width: 600px) {
             main { padding: 36px 20px 48px; }
             .nav-link { padding: 6px 10px; font-size: 0.82rem; }
+            .data-table, .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+                display: block;
+            }
+            .data-table thead { display: none; }
+            .data-table tr {
+                border: 1px solid var(--border-light);
+                border-radius: 12px; padding: 10px 12px; margin-bottom: 10px;
+            }
+            .data-table td {
+                border: none; padding: 4px 0;
+            }
+            .data-table td::before {
+                content: attr(data-label);
+                display: block; font-weight: 600; color: var(--text);
+                font-size: 0.78rem; margin-bottom: 2px;
+            }
         }
     </style>
 </head>
@@ -120,38 +156,114 @@
     <main>
         <span class="section-label" data-i18n="page_label">Legal</span>
         <h1 data-i18n="page_title">Privacy Policy</h1>
-        <p class="meta"><span data-i18n="effective">Effective date:</span> <span id="effective-date">September 2, 2026</span> · Collateify · Pandobal Limited</p>
+        <p class="meta"><span data-i18n="effective">Effective date:</span> <span id="effective-date" data-i18n="effective_date">September 2, 2026</span> · Collateify · Pandobal Limited</p>
 
         <div class="card">
             <h2 data-i18n="s1_title">Overview</h2>
             <p data-i18n="s1_p1">Collateify is provided by Pandobal Limited (Hong Kong). This Privacy Policy explains how the Collateify app handles information when you use it on your device.</p>
-            <p data-i18n="s1_p2">Collateify organizes your photos on this device. Photos are not uploaded to our servers.</p>
+            <p data-i18n="s1_p2">Collateify organizes your photos on this device. Photos are not uploaded to Pandobal servers. We do not operate a Collateify account system and we do not require you to create an account with us.</p>
         </div>
 
         <div class="card">
-            <h2 data-i18n="s2_title">Permissions we use</h2>
-            <p data-i18n="s2_p1"><strong>Photos:</strong> Access is used only to read and organize your photo library on your device.</p>
-            <p data-i18n="s2_p2"><strong>Notifications:</strong> Used to remind you about 2 days before a free trial ends, so you can avoid an unexpected renewal.</p>
-            <p data-i18n="s2_p3"><strong>Location data in photos:</strong> The photo info screen may show a place name derived from location data already stored in a photo’s metadata. We do not track your live location.</p>
+            <h2 data-i18n="s2_title">Information we process</h2>
+            <p data-i18n="s2_intro">The following summarizes what may be processed when you use Collateify:</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="th_category">Category</th>
+                        <th data-i18n="th_what">What</th>
+                        <th data-i18n="th_where">Where it stays</th>
+                        <th data-i18n="th_shared">Shared with Pandobal?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="" data-i18n-label="th_category" data-i18n="row1_cat">Photos</td>
+                        <td data-label="" data-i18n-label="th_what" data-i18n="row1_what">Photo library access to display and organize photos you choose to review</td>
+                        <td data-label="" data-i18n-label="th_where" data-i18n="row1_where">On your device only</td>
+                        <td data-label="" data-i18n-label="th_shared" data-i18n="row1_shared">No — never uploaded to us</td>
+                    </tr>
+                    <tr>
+                        <td data-label="" data-i18n-label="th_category" data-i18n="row2_cat">Photo location metadata</td>
+                        <td data-label="" data-i18n-label="th_what" data-i18n="row2_what">Place names derived from location already stored in a photo’s metadata (EXIF), when available</td>
+                        <td data-label="" data-i18n-label="th_where" data-i18n="row2_where">On your device; reverse geocoding uses the operating system</td>
+                        <td data-label="" data-i18n-label="th_shared" data-i18n="row2_shared">No — we do not receive it</td>
+                    </tr>
+                    <tr>
+                        <td data-label="" data-i18n-label="th_category" data-i18n="row3_cat">App preferences</td>
+                        <td data-label="" data-i18n-label="th_what" data-i18n="row3_what">Settings such as language, organize mode, local guides, and local subscription status flags</td>
+                        <td data-label="" data-i18n-label="th_where" data-i18n="row3_where">On your device</td>
+                        <td data-label="" data-i18n-label="th_shared" data-i18n="row3_shared">No</td>
+                    </tr>
+                    <tr>
+                        <td data-label="" data-i18n-label="th_category" data-i18n="row4_cat">Purchases</td>
+                        <td data-label="" data-i18n-label="th_what" data-i18n="row4_what">Subscription purchase and restore handled by Apple</td>
+                        <td data-label="" data-i18n-label="th_where" data-i18n="row4_where">Processed by Apple under Apple’s privacy policy</td>
+                        <td data-label="" data-i18n-label="th_shared" data-i18n="row4_shared">We do not receive your payment card details</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="card">
-            <h2 data-i18n="s3_title">Subscriptions &amp; payments</h2>
-            <p data-i18n="s3_p1">Subscriptions are billed and managed by Apple or Google through your store account. We do not collect or store your payment card details.</p>
+            <h2 data-i18n="s3_title">Permissions we use</h2>
+            <p><strong data-i18n="s3_photos_label">Photos:</strong> <span data-i18n="s3_photos_body">Access is used only to read and organize your photo library on your device.</span></p>
+            <p><strong data-i18n="s3_notif_label">Notifications:</strong> <span data-i18n="s3_notif_body">Used for a local reminder about 2 days before a free trial ends, so you can avoid an unexpected renewal. Reminders are scheduled on the device.</span></p>
+            <p><strong data-i18n="s3_loc_label">Location data in photos:</strong> <span data-i18n="s3_loc_body">The photo info screen may show a place name from metadata already in the photo. We do not track your live GPS location, and Collateify does not request continuous background location.</span></p>
         </div>
 
         <div class="card">
-            <h2 data-i18n="s4_title">Your choices</h2>
-            <p data-i18n="s4_p1">You can turn off Photos or Notifications access in system settings at any time. You can cancel subscription renewal in system subscription settings (for example, iPhone Settings → Apple ID → Subscriptions).</p>
+            <h2 data-i18n="s4_title">What we do not collect</h2>
+            <ul>
+                <li data-i18n="s4_li1">We do not upload your photos or albums to Pandobal servers.</li>
+                <li data-i18n="s4_li2">We do not run advertising trackers or sell your personal information.</li>
+                <li data-i18n="s4_li3">We do not use third-party analytics or crash-reporting SDKs that send your usage data to us.</li>
+                <li data-i18n="s4_li4">We do not collect payment card numbers; billing is handled by Apple.</li>
+            </ul>
         </div>
 
         <div class="card">
-            <h2 data-i18n="s5_title">Contact</h2>
-            <p data-i18n="s5_p1">Questions about this Privacy Policy:</p>
+            <h2 data-i18n="s5_title">Third parties</h2>
+            <p data-i18n="s5_p1">Depending on how you use the app and your device, the following may process information under their own policies:</p>
+            <ul>
+                <li data-i18n="s5_li1">Apple — App Store subscriptions, In-App Purchase, and system services (for example Maps when you choose to open a location, and system reverse geocoding).</li>
+                <li data-i18n="s5_li2">Your device operating system — permission prompts, local storage, and local notifications.</li>
+            </ul>
+            <p data-i18n="s5_p2">Pandobal does not sell personal data to third parties.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s6_title">Retention</h2>
+            <p data-i18n="s6_p1">Because photo and preference data stay on your device, retention is controlled by you: uninstalling the app or clearing app data removes Collateify’s local data. Photos themselves remain in your system photo library according to your device settings. We do not retain your photos on Pandobal servers.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s7_title">Children</h2>
+            <p data-i18n="s7_p1">Collateify is not directed at children under 13 (or the minimum age required in your region). We do not knowingly collect personal information from children. If you believe a child has provided information to us in a way that concerns you, contact us and we will help address it.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s8_title">Subscriptions &amp; payments</h2>
+            <p data-i18n="s8_p1">Paid subscriptions (Collateify Pro) are billed and managed through your Apple ID via the App Store. Prices are shown in the app at purchase. We do not collect or store your payment card details. For Apple’s handling of purchase data, see Apple’s privacy policy.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s9_title">Your choices</h2>
+            <p data-i18n="s9_p1">You can turn off Photos or Notifications access in iOS Settings at any time. You can cancel subscription renewal in Settings → [Your Name] → Subscriptions. Deleting the app stops local processing by Collateify; it does not by itself cancel an App Store subscription.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s10_title">Changes</h2>
+            <p data-i18n="s10_p1">We may update this Privacy Policy from time to time. The effective date at the top of this page will be revised when we do. Continued use of Collateify after an update means you acknowledge the revised policy. The latest version is always available at pandobal.com/privacy.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s11_title">Contact</h2>
+            <p data-i18n="s11_p1">Questions about this Privacy Policy:</p>
             <p>
                 <a href="mailto:hello@pandobal.com">hello@pandobal.com</a><br>
                 Pandobal Limited<br>
-                <span data-i18n="s5_address">FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG</span>
+                <span data-i18n="s11_address">FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG</span>
             </p>
         </div>
     </main>
@@ -169,61 +281,178 @@
                 nav_tagline: 'Where technology meets humanity',
                 nav_home: 'Home', nav_support: 'Support', nav_privacy: 'Privacy', nav_terms: 'Terms',
                 lang_label: 'Language', page_label: 'Legal', page_title: 'Privacy Policy',
-                effective: 'Effective date:',
+                effective: 'Effective date:', effective_date: 'September 2, 2026',
+                meta_desc: 'Privacy Policy for Collateify by Pandobal Limited. Photos stay on your device; what we access, what we do not collect, and how subscriptions work.',
                 s1_title: 'Overview',
                 s1_p1: 'Collateify is provided by Pandobal Limited (Hong Kong). This Privacy Policy explains how the Collateify app handles information when you use it on your device.',
-                s1_p2: 'Collateify organizes your photos on this device. Photos are not uploaded to our servers.',
-                s2_title: 'Permissions we use',
-                s2_p1: 'Photos: Access is used only to read and organize your photo library on your device.',
-                s2_p2: 'Notifications: Used to remind you about 2 days before a free trial ends, so you can avoid an unexpected renewal.',
-                s2_p3: 'Location data in photos: The photo info screen may show a place name derived from location data already stored in a photo’s metadata. We do not track your live location.',
-                s3_title: 'Subscriptions & payments',
-                s3_p1: 'Subscriptions are billed and managed by Apple or Google through your store account. We do not collect or store your payment card details.',
-                s4_title: 'Your choices',
-                s4_p1: 'You can turn off Photos or Notifications access in system settings at any time. You can cancel subscription renewal in system subscription settings (for example, iPhone Settings → Apple ID → Subscriptions).',
-                s5_title: 'Contact',
-                s5_p1: 'Questions about this Privacy Policy:',
-                s5_address: 'FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG'
+                s1_p2: 'Collateify organizes your photos on this device. Photos are not uploaded to Pandobal servers. We do not operate a Collateify account system and we do not require you to create an account with us.',
+                s2_title: 'Information we process',
+                s2_intro: 'The following summarizes what may be processed when you use Collateify:',
+                th_category: 'Category', th_what: 'What', th_where: 'Where it stays', th_shared: 'Shared with Pandobal?',
+                row1_cat: 'Photos',
+                row1_what: 'Photo library access to display and organize photos you choose to review',
+                row1_where: 'On your device only',
+                row1_shared: 'No — never uploaded to us',
+                row2_cat: 'Photo location metadata',
+                row2_what: 'Place names derived from location already stored in a photo’s metadata (EXIF), when available',
+                row2_where: 'On your device; reverse geocoding uses the operating system',
+                row2_shared: 'No — we do not receive it',
+                row3_cat: 'App preferences',
+                row3_what: 'Settings such as language, organize mode, local guides, and local subscription status flags',
+                row3_where: 'On your device',
+                row3_shared: 'No',
+                row4_cat: 'Purchases',
+                row4_what: 'Subscription purchase and restore handled by Apple',
+                row4_where: 'Processed by Apple under Apple’s privacy policy',
+                row4_shared: 'We do not receive your payment card details',
+                s3_title: 'Permissions we use',
+                s3_photos_label: 'Photos:',
+                s3_photos_body: 'Access is used only to read and organize your photo library on your device.',
+                s3_notif_label: 'Notifications:',
+                s3_notif_body: 'Used for a local reminder about 2 days before a free trial ends, so you can avoid an unexpected renewal. Reminders are scheduled on the device.',
+                s3_loc_label: 'Location data in photos:',
+                s3_loc_body: 'The photo info screen may show a place name from metadata already in the photo. We do not track your live GPS location, and Collateify does not request continuous background location.',
+                s4_title: 'What we do not collect',
+                s4_li1: 'We do not upload your photos or albums to Pandobal servers.',
+                s4_li2: 'We do not run advertising trackers or sell your personal information.',
+                s4_li3: 'We do not use third-party analytics or crash-reporting SDKs that send your usage data to us.',
+                s4_li4: 'We do not collect payment card numbers; billing is handled by Apple.',
+                s5_title: 'Third parties',
+                s5_p1: 'Depending on how you use the app and your device, the following may process information under their own policies:',
+                s5_li1: 'Apple — App Store subscriptions, In-App Purchase, and system services (for example Maps when you choose to open a location, and system reverse geocoding).',
+                s5_li2: 'Your device operating system — permission prompts, local storage, and local notifications.',
+                s5_p2: 'Pandobal does not sell personal data to third parties.',
+                s6_title: 'Retention',
+                s6_p1: 'Because photo and preference data stay on your device, retention is controlled by you: uninstalling the app or clearing app data removes Collateify’s local data. Photos themselves remain in your system photo library according to your device settings. We do not retain your photos on Pandobal servers.',
+                s7_title: 'Children',
+                s7_p1: 'Collateify is not directed at children under 13 (or the minimum age required in your region). We do not knowingly collect personal information from children. If you believe a child has provided information to us in a way that concerns you, contact us and we will help address it.',
+                s8_title: 'Subscriptions & payments',
+                s8_p1: 'Paid subscriptions (Collateify Pro) are billed and managed through your Apple ID via the App Store. Prices are shown in the app at purchase. We do not collect or store your payment card details. For Apple’s handling of purchase data, see Apple’s privacy policy.',
+                s9_title: 'Your choices',
+                s9_p1: 'You can turn off Photos or Notifications access in iOS Settings at any time. You can cancel subscription renewal in Settings → [Your Name] → Subscriptions. Deleting the app stops local processing by Collateify; it does not by itself cancel an App Store subscription.',
+                s10_title: 'Changes',
+                s10_p1: 'We may update this Privacy Policy from time to time. The effective date at the top of this page will be revised when we do. Continued use of Collateify after an update means you acknowledge the revised policy. The latest version is always available at pandobal.com/privacy.',
+                s11_title: 'Contact',
+                s11_p1: 'Questions about this Privacy Policy:',
+                s11_address: 'FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG'
             },
             zh: {
                 nav_tagline: '科技与人文的交汇点',
                 nav_home: '首页', nav_support: '支持', nav_privacy: '隐私政策', nav_terms: '服务条款',
                 lang_label: '语言', page_label: '法律信息', page_title: '隐私政策',
-                effective: '生效日期：',
+                effective: '生效日期：', effective_date: '2026年9月2日',
+                meta_desc: '盼多宝有限公司 Collateify 隐私政策：照片留在本机、权限说明、我们不收集的内容，以及订阅与支付。',
                 s1_title: '概述',
                 s1_p1: 'Collateify 由香港盼多宝有限公司（Pandobal Limited）提供。本隐私政策说明你在设备上使用 Collateify 时，我们如何处理相关信息。',
-                s1_p2: 'Collateify 在设备本地整理你的相册，照片不会上传到我们的服务器。',
-                s2_title: '我们使用的权限',
-                s2_p1: '相册：仅用于在本机读取和整理你的照片库。',
-                s2_p2: '通知：用于在试用结束前约 2 天提醒你，避免意外续费。',
-                s2_p3: '照片中的位置信息：照片信息页可能根据照片自带的拍摄位置元数据显示地点名称。我们不会追踪你的实时位置。',
-                s3_title: '订阅与支付',
-                s3_p1: '订阅通过 Apple 或 Google 账户扣款和管理。我们不收集或存储你的支付卡信息。',
-                s4_title: '你的选择',
-                s4_p1: '你可以随时在系统设置中关闭相册或通知权限，也可以在系统订阅页取消续费（例如：iPhone 设置 → Apple ID → 订阅）。',
-                s5_title: '联系我们',
-                s5_p1: '如对本隐私政策有疑问，请联系：',
-                s5_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室'
+                s1_p2: 'Collateify 在本机整理你的相册，照片不会上传到盼多宝的服务器。我们不提供 Collateify 账户体系，也不要求你向我们注册账号。',
+                s2_title: '我们处理的信息',
+                s2_intro: '使用 Collateify 时，可能涉及如下信息：',
+                th_category: '类别', th_what: '内容', th_where: '存放位置', th_shared: '是否提供给盼多宝',
+                row1_cat: '照片',
+                row1_what: '读取相册以展示并整理你选择审阅的照片',
+                row1_where: '仅在你的设备上',
+                row1_shared: '否 — 不会上传给我们',
+                row2_cat: '照片位置元数据',
+                row2_what: '在可用时，根据照片自带的位置元数据（EXIF）显示地点名称',
+                row2_where: '在你的设备上；逆地理编码由操作系统处理',
+                row2_shared: '否 — 我们不会收到',
+                row3_cat: '应用偏好',
+                row3_what: '语言、整理模式、引导状态、本地订阅状态标记等设置',
+                row3_where: '在你的设备上',
+                row3_shared: '否',
+                row4_cat: '购买',
+                row4_what: '订阅购买与恢复购买由 Apple 处理',
+                row4_where: '由 Apple 按其隐私政策处理',
+                row4_shared: '我们不会收到你的支付卡信息',
+                s3_title: '我们使用的权限',
+                s3_photos_label: '相册：',
+                s3_photos_body: '仅用于在本机读取和整理你的照片库。',
+                s3_notif_label: '通知：',
+                s3_notif_body: '用于在试用结束前约 2 天发出本机提醒，避免意外续费。提醒在设备本地安排。',
+                s3_loc_label: '照片中的位置信息：',
+                s3_loc_body: '照片信息页可能根据照片已有的元数据显示地点名称。我们不会追踪你的实时 GPS 位置，Collateify 也不申请持续后台定位。',
+                s4_title: '我们不收集的内容',
+                s4_li1: '我们不会把你的照片或相册上传到盼多宝服务器。',
+                s4_li2: '我们不使用广告追踪，也不出售你的个人信息。',
+                s4_li3: '我们不使用会把使用数据发送给我们的第三方分析或崩溃上报 SDK。',
+                s4_li4: '我们不收集支付卡号；扣款由 Apple 处理。',
+                s5_title: '第三方',
+                s5_p1: '根据你的使用方式和设备，以下主体可能按其自身政策处理信息：',
+                s5_li1: 'Apple — App Store 订阅、App 内购买，以及系统服务（例如你选择打开位置时的地图、系统逆地理编码）。',
+                s5_li2: '设备操作系统 — 权限弹窗、本地存储与本地通知。',
+                s5_p2: '盼多宝不会向第三方出售个人数据。',
+                s6_title: '保存期限',
+                s6_p1: '照片与偏好数据保存在你的设备上，保存期限由你控制：卸载应用或清除应用数据会删除 Collateify 的本地数据。照片本身仍按系统相册规则保留。我们不会在盼多宝服务器上保存你的照片。',
+                s7_title: '儿童',
+                s7_p1: 'Collateify 并非面向 13 岁以下儿童（或你所在地区要求的最低年龄）。我们不会故意收集儿童的个人信息。若你认为儿童以令你担忧的方式向我们提供了信息，请联系我们，我们会协助处理。',
+                s8_title: '订阅与支付',
+                s8_p1: '付费订阅（Collateify Pro）通过你的 Apple ID 经 App Store 扣款和管理。价格在购买时于应用内展示。我们不收集或存储你的支付卡信息。Apple 如何处理购买数据，请参阅 Apple 隐私政策。',
+                s9_title: '你的选择',
+                s9_p1: '你可以随时在 iOS 设置中关闭相册或通知权限；可在「设置 → [你的名字] → 订阅」中取消续费。删除应用会停止 Collateify 的本机处理，但不会自动取消 App Store 订阅。',
+                s10_title: '政策变更',
+                s10_p1: '我们可能不时更新本隐私政策，并会修订页首生效日期。更新后继续使用 Collateify，即表示你知悉修订后的政策。最新版本始终发布于 pandobal.com/privacy。',
+                s11_title: '联系我们',
+                s11_p1: '如对本隐私政策有疑问，请联系：',
+                s11_address: '香港深水埗长沙湾道21-25号长丰商业大厦15楼1506室'
             },
             hk: {
                 nav_tagline: '科技與人文的交匯點',
                 nav_home: '首頁', nav_support: '支援', nav_privacy: '私隱政策', nav_terms: '服務條款',
                 lang_label: '語言', page_label: '法律資訊', page_title: '私隱政策',
-                effective: '生效日期：',
+                effective: '生效日期：', effective_date: '2026年9月2日',
+                meta_desc: '盼多寶有限公司 Collateify 私隱政策：照片留在本機、權限說明、我們不收集的內容，以及訂閱與支付。',
                 s1_title: '概述',
                 s1_p1: 'Collateify 由香港盼多寶有限公司（Pandobal Limited）提供。本私隱政策說明你在裝置上使用 Collateify 時，我們如何處理相關資訊。',
-                s1_p2: 'Collateify 在裝置本地整理你的相簿，照片不會上傳到我們的伺服器。',
-                s2_title: '我們使用的權限',
-                s2_p1: '相簿：僅用於在本機讀取和整理你的照片庫。',
-                s2_p2: '通知：用於在試用結束前約 2 天提醒你，避免意外續費。',
-                s2_p3: '照片中的位置資訊：照片資訊頁可能根據照片自帶的拍攝位置元數據顯示地點名稱。我們不會追蹤你的實時位置。',
-                s3_title: '訂閱與支付',
-                s3_p1: '訂閱透過 Apple 或 Google 帳戶扣款和管理。我們不收集或儲存你的支付卡資訊。',
-                s4_title: '你的選擇',
-                s4_p1: '你可以隨時在系統設定中關閉相簿或通知權限，也可以在系統訂閱頁取消續費（例如：iPhone 設定 → Apple ID → 訂閱）。',
-                s5_title: '聯絡我們',
-                s5_p1: '如對本私隱政策有疑問，請聯絡：',
-                s5_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室'
+                s1_p2: 'Collateify 在本機整理你的相簿，照片不會上傳到盼多寶的伺服器。我們不提供 Collateify 帳戶體系，也不要求你向我們註冊帳號。',
+                s2_title: '我們處理的資訊',
+                s2_intro: '使用 Collateify 時，可能涉及如下資訊：',
+                th_category: '類別', th_what: '內容', th_where: '存放位置', th_shared: '是否提供給盼多寶',
+                row1_cat: '照片',
+                row1_what: '讀取相簿以展示並整理你選擇審閱的照片',
+                row1_where: '僅在你的裝置上',
+                row1_shared: '否 — 不會上傳給我們',
+                row2_cat: '照片位置元數據',
+                row2_what: '在可用時，根據照片自帶的位置元數據（EXIF）顯示地點名稱',
+                row2_where: '在你的裝置上；逆地理編碼由作業系統處理',
+                row2_shared: '否 — 我們不會收到',
+                row3_cat: '應用偏好',
+                row3_what: '語言、整理模式、引導狀態、本地訂閱狀態標記等設定',
+                row3_where: '在你的裝置上',
+                row3_shared: '否',
+                row4_cat: '購買',
+                row4_what: '訂閱購買與恢復購買由 Apple 處理',
+                row4_where: '由 Apple 按其私隱政策處理',
+                row4_shared: '我們不會收到你的支付卡資訊',
+                s3_title: '我們使用的權限',
+                s3_photos_label: '相簿：',
+                s3_photos_body: '僅用於在本機讀取和整理你的照片庫。',
+                s3_notif_label: '通知：',
+                s3_notif_body: '用於在試用結束前約 2 天發出本機提醒，避免意外續費。提醒在裝置本地安排。',
+                s3_loc_label: '照片中的位置資訊：',
+                s3_loc_body: '照片資訊頁可能根據照片已有的元數據顯示地點名稱。我們不會追蹤你的實時 GPS 位置，Collateify 也不申請持續背景定位。',
+                s4_title: '我們不收集的內容',
+                s4_li1: '我們不會把你的照片或相簿上傳到盼多寶伺服器。',
+                s4_li2: '我們不使用廣告追蹤，也不出售你的個人資訊。',
+                s4_li3: '我們不使用會把使用數據發送給我們的第三方分析或崩潰上報 SDK。',
+                s4_li4: '我們不收集支付卡號；扣款由 Apple 處理。',
+                s5_title: '第三方',
+                s5_p1: '根據你的使用方式和裝置，以下主體可能按其自身政策處理資訊：',
+                s5_li1: 'Apple — App Store 訂閱、App 內購買，以及系統服務（例如你選擇打開位置時的地圖、系統逆地理編碼）。',
+                s5_li2: '裝置作業系統 — 權限提示、本地儲存與本地通知。',
+                s5_p2: '盼多寶不會向第三方出售個人數據。',
+                s6_title: '保存期限',
+                s6_p1: '照片與偏好數據保存在你的裝置上，保存期限由你控制：解除安裝應用或清除應用數據會刪除 Collateify 的本地數據。照片本身仍按系統相簿規則保留。我們不會在盼多寶伺服器上保存你的照片。',
+                s7_title: '兒童',
+                s7_p1: 'Collateify 並非面向 13 歲以下兒童（或你所在地區要求的最低年齡）。我們不會故意收集兒童的個人資訊。若你認為兒童以令你擔憂的方式向我們提供了資訊，請聯絡我們，我們會協助處理。',
+                s8_title: '訂閱與支付',
+                s8_p1: '付費訂閱（Collateify Pro）透過你的 Apple ID 經 App Store 扣款和管理。價格在購買時於應用內展示。我們不收集或儲存你的支付卡資訊。Apple 如何處理購買數據，請參閱 Apple 私隱政策。',
+                s9_title: '你的選擇',
+                s9_p1: '你可以隨時在 iOS 設定中關閉相簿或通知權限；可在「設定 → [你的名字] → 訂閱」中取消續費。刪除應用會停止 Collateify 的本機處理，但不會自動取消 App Store 訂閱。',
+                s10_title: '政策變更',
+                s10_p1: '我們可能不時更新本私隱政策，並會修訂頁首生效日期。更新後繼續使用 Collateify，即表示你知悉修訂後的政策。最新版本始終發佈於 pandobal.com/privacy。',
+                s11_title: '聯絡我們',
+                s11_p1: '如對本私隱政策有疑問，請聯絡：',
+                s11_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室'
             }
         };
 
@@ -254,8 +483,14 @@
                 const key = el.getAttribute('data-i18n');
                 if (key) el.textContent = t(key);
             });
+            document.querySelectorAll('[data-i18n-label]').forEach((el) => {
+                const key = el.getAttribute('data-i18n-label');
+                if (key) el.setAttribute('data-label', t(key));
+            });
             document.documentElement.lang = htmlLangMap[lang] || 'en';
             document.title = titleMap[lang] || titleMap.en;
+            const meta = document.getElementById('meta-desc');
+            if (meta) meta.setAttribute('content', t('meta_desc'));
             const sel = document.getElementById('lang-select');
             if (sel) { sel.value = lang; sel.setAttribute('aria-label', t('lang_label')); }
         }
