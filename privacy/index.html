@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Privacy Policy · Collateify · Pandobal</title>
+    <meta name="description" content="Privacy Policy for Collateify by Pandobal Limited. How we handle photos, permissions, and subscriptions.">
+    <meta name="theme-color" content="#FF8B6A">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF8B6A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='18' font-family='system-ui' fill='white' font-weight='600'%3EP%3C/text%3E%3C/svg%3E">
+    <style>
+        :root {
+            --primary: #FF8B6A;
+            --primary-muted: rgba(255, 139, 106, 0.14);
+            --bg: #FFFCFB;
+            --surface: #FFFFFF;
+            --text: #2A221E;
+            --text-secondary: #6B5E56;
+            --text-muted: #9A8B82;
+            --border: #EDE0D8;
+            --border-light: #F0E6E0;
+            --shadow: 0 8px 32px rgba(42, 34, 30, 0.06);
+            --radius-md: 16px;
+            --radius-pill: 999px;
+            --nav-height: 64px;
+            --max-width: 720px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        a:focus-visible, select:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        .navbar {
+            position: sticky; top: 0;
+            background: rgba(255, 252, 251, 0.88);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light); z-index: 100;
+        }
+        .nav-container {
+            max-width: 1080px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+            padding: 0 24px; height: var(--nav-height); gap: 16px;
+        }
+        .logo-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+        .logo-link:hover { text-decoration: none; }
+        .logo { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; }
+        .tagline { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.03em; }
+        .nav-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-link {
+            font-size: 0.88rem; font-weight: 500; color: var(--text-secondary);
+            padding: 7px 12px; border-radius: var(--radius-pill);
+        }
+        .nav-link:hover { color: var(--text); background: var(--primary-muted); text-decoration: none; }
+        .nav-link.active { color: var(--primary); background: var(--primary-muted); }
+        .lang-select {
+            padding: 7px 10px; font-size: 0.82rem; border-radius: 10px;
+            border: 1px solid var(--border); background: var(--surface);
+            cursor: pointer; font-weight: 500; color: var(--text);
+        }
+        main { flex: 1; max-width: var(--max-width); margin: 0 auto; padding: 48px 24px 64px; width: 100%; }
+        .section-label {
+            display: inline-block; font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;
+        }
+        h1 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 650;
+            letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 8px;
+        }
+        .meta { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 28px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px;
+        }
+        .card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+        .card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; }
+        .card p:last-child { margin-bottom: 0; }
+        .footer {
+            text-align: center; padding: 28px 24px 36px; font-size: 0.82rem;
+            color: var(--text-muted); border-top: 1px solid var(--border-light);
+        }
+        .footer a { margin: 0 4px; }
+        @media (max-width: 600px) {
+            main { padding: 36px 20px 48px; }
+            .nav-link { padding: 6px 10px; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a class="logo-link" href="/">
+                <div class="logo">Pandobal</div>
+                <div class="tagline" data-i18n="nav_tagline">Where technology meets humanity</div>
+            </a>
+            <div class="nav-right">
+                <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+                <a class="nav-link" href="/support/" data-i18n="nav_support">Support</a>
+                <a class="nav-link active" href="/privacy/" data-i18n="nav_privacy">Privacy</a>
+                <a class="nav-link" href="/terms/" data-i18n="nav_terms">Terms</a>
+                <select class="lang-select" id="lang-select" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="zh">简体中文</option>
+                    <option value="hk">繁體中文</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <span class="section-label" data-i18n="page_label">Legal</span>
+        <h1 data-i18n="page_title">Privacy Policy</h1>
+        <p class="meta"><span data-i18n="effective">Effective date:</span> <span id="effective-date">September 2, 2026</span> · Collateify · Pandobal Limited</p>
+
+        <div class="card">
+            <h2 data-i18n="s1_title">Overview</h2>
+            <p data-i18n="s1_p1">Collateify is provided by Pandobal Limited (Hong Kong). This Privacy Policy explains how the Collateify app handles information when you use it on your device.</p>
+            <p data-i18n="s1_p2">Collateify organizes your photos on this device. Photos are not uploaded to our servers.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s2_title">Permissions we use</h2>
+            <p data-i18n="s2_p1"><strong>Photos:</strong> Access is used only to read and organize your photo library on your device.</p>
+            <p data-i18n="s2_p2"><strong>Notifications:</strong> Used to remind you about 2 days before a free trial ends, so you can avoid an unexpected renewal.</p>
+            <p data-i18n="s2_p3"><strong>Location data in photos:</strong> The photo info screen may show a place name derived from location data already stored in a photo’s metadata. We do not track your live location.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s3_title">Subscriptions &amp; payments</h2>
+            <p data-i18n="s3_p1">Subscriptions are billed and managed by Apple or Google through your store account. We do not collect or store your payment card details.</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s4_title">Your choices</h2>
+            <p data-i18n="s4_p1">You can turn off Photos or Notifications access in system settings at any time. You can cancel subscription renewal in system subscription settings (for example, iPhone Settings → Apple ID → Subscriptions).</p>
+        </div>
+
+        <div class="card">
+            <h2 data-i18n="s5_title">Contact</h2>
+            <p data-i18n="s5_p1">Questions about this Privacy Policy:</p>
+            <p>
+                <a href="mailto:hello@pandobal.com">hello@pandobal.com</a><br>
+                Pandobal Limited<br>
+                <span data-i18n="s5_address">FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG</span>
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        © <span id="footer-year"></span> Pandobal Limited ·
+        <a href="/privacy/" data-i18n="nav_privacy">Privacy</a> ·
+        <a href="/terms/" data-i18n="nav_terms">Terms</a> ·
+        <a href="/support/" data-i18n="nav_support">Support</a>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_tagline: 'Where technology meets humanity',
+                nav_home: 'Home', nav_support: 'Support', nav_privacy: 'Privacy', nav_terms: 'Terms',
+                lang_label: 'Language', page_label: 'Legal', page_title: 'Privacy Policy',
+                effective: 'Effective date:',
+                s1_title: 'Overview',
+                s1_p1: 'Collateify is provided by Pandobal Limited (Hong Kong). This Privacy Policy explains how the Collateify app handles information when you use it on your device.',
+                s1_p2: 'Collateify organizes your photos on this device. Photos are not uploaded to our servers.',
+                s2_title: 'Permissions we use',
+                s2_p1: 'Photos: Access is used only to read and organize your photo library on your device.',
+                s2_p2: 'Notifications: Used to remind you about 2 days before a free trial ends, so you can avoid an unexpected renewal.',
+                s2_p3: 'Location data in photos: The photo info screen may show a place name derived from location data already stored in a photo’s metadata. We do not track your live location.',
+                s3_title: 'Subscriptions & payments',
+                s3_p1: 'Subscriptions are billed and managed by Apple or Google through your store account. We do not collect or store your payment card details.',
+                s4_title: 'Your choices',
+                s4_p1: 'You can turn off Photos or Notifications access in system settings at any time. You can cancel subscription renewal in system subscription settings (for example, iPhone Settings → Apple ID → Subscriptions).',
+                s5_title: 'Contact',
+                s5_p1: 'Questions about this Privacy Policy:',
+                s5_address: 'FLAT 1506, 15/F, CHEUNG FUNG COMMERCIAL BLDG, 21-25 CHEUNG SHA WAN ROAD, SHAM SHUI PO, HONG KONG'
+            },
+            zh: {
+                nav_tagline: '科技与人文的交汇点',
+                nav_home: '首页', nav_support: '支持', nav_privacy: '隐私政策', nav_terms: '服务条款',
+                lang_label: '语言', page_label: '法律信息', page_title: '隐私政策',
+                effective: '生效日期：',
+                s1_title: '概述',
+                s1_p1: 'Collateify 由香港盼多宝有限公司（Pandobal Limited）提供。本隐私政策说明你在设备上使用 Collateify 时，我们如何处理相关信息。',
+                s1_p2: 'Collateify 在设备本地整理你的相册，照片不会上传到我们的服务器。',
+                s2_title: '我们使用的权限',
+                s2_p1: '相册：仅用于在本机读取和整理你的照片库。',
+                s2_p2: '通知：用于在试用结束前约 2 天提醒你，避免意外续费。',
+                s2_p3: '照片中的位置信息：照片信息页可能根据照片自带的拍摄位置元数据显示地点名称。我们不会追踪你的实时位置。',
+                s3_title: '订阅与支付',
+                s3_p1: '订阅通过 Apple 或 Google 账户扣款和管理。我们不收集或存储你的支付卡信息。',
+                s4_title: '你的选择',
+                s4_p1: '你可以随时在系统设置中关闭相册或通知权限，也可以在系统订阅页取消续费（例如：iPhone 设置 → Apple ID → 订阅）。',
+                s5_title: '联系我们',
+                s5_p1: '如对本隐私政策有疑问，请联系：',
+                s5_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室'
+            },
+            hk: {
+                nav_tagline: '科技與人文的交匯點',
+                nav_home: '首頁', nav_support: '支援', nav_privacy: '私隱政策', nav_terms: '服務條款',
+                lang_label: '語言', page_label: '法律資訊', page_title: '私隱政策',
+                effective: '生效日期：',
+                s1_title: '概述',
+                s1_p1: 'Collateify 由香港盼多寶有限公司（Pandobal Limited）提供。本私隱政策說明你在裝置上使用 Collateify 時，我們如何處理相關資訊。',
+                s1_p2: 'Collateify 在裝置本地整理你的相簿，照片不會上傳到我們的伺服器。',
+                s2_title: '我們使用的權限',
+                s2_p1: '相簿：僅用於在本機讀取和整理你的照片庫。',
+                s2_p2: '通知：用於在試用結束前約 2 天提醒你，避免意外續費。',
+                s2_p3: '照片中的位置資訊：照片資訊頁可能根據照片自帶的拍攝位置元數據顯示地點名稱。我們不會追蹤你的實時位置。',
+                s3_title: '訂閱與支付',
+                s3_p1: '訂閱透過 Apple 或 Google 帳戶扣款和管理。我們不收集或儲存你的支付卡資訊。',
+                s4_title: '你的選擇',
+                s4_p1: '你可以隨時在系統設定中關閉相簿或通知權限，也可以在系統訂閱頁取消續費（例如：iPhone 設定 → Apple ID → 訂閱）。',
+                s5_title: '聯絡我們',
+                s5_p1: '如對本私隱政策有疑問，請聯絡：',
+                s5_address: '香港深水埗長沙灣道21-25號長豐商業大廈15樓1506室'
+            }
+        };
+
+        const htmlLangMap = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant' };
+        const titleMap = {
+            en: 'Privacy Policy · Collateify · Pandobal',
+            zh: '隐私政策 · Collateify · 盼多宝',
+            hk: '私隱政策 · Collateify · 盼多寶'
+        };
+
+        function getBrowserLang() {
+            const b = navigator.language || '';
+            if (b.startsWith('zh') && (b.includes('HK') || b.includes('TW') || b.includes('Hant'))) return 'hk';
+            if (b.startsWith('zh')) return 'zh';
+            return 'en';
+        }
+        function getInitialLang() {
+            const saved = localStorage.getItem('pandobal_lang');
+            if (saved && translations[saved]) return saved;
+            const b = getBrowserLang();
+            return translations[b] ? b : 'en';
+        }
+        let currentLang = getInitialLang();
+        function t(key) { return translations[currentLang]?.[key] || key; }
+        function applyLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (key) el.textContent = t(key);
+            });
+            document.documentElement.lang = htmlLangMap[lang] || 'en';
+            document.title = titleMap[lang] || titleMap.en;
+            const sel = document.getElementById('lang-select');
+            if (sel) { sel.value = lang; sel.setAttribute('aria-label', t('lang_label')); }
+        }
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        document.getElementById('lang-select').addEventListener('change', (e) => {
+            localStorage.setItem('pandobal_lang', e.target.value);
+            applyLang(e.target.value);
+        });
+        applyLang(currentLang);
+    </script>
+</body>
+</html>
