@@ -5,38 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Pandobal · Collateify</title>
     <meta name="description" content="Pandobal is a Hong Kong based technology company. Collateify helps you clean up your photo library while enjoying your memories.">
+    <meta name="theme-color" content="#FF8B6A">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pandobal · Collateify">
+    <meta property="og:description" content="Where technology meets humanity. Collateify — clean up your photo library while rediscovering memories.">
+    <meta property="og:locale" content="zh_HK">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF8B6A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='18' font-family='system-ui' fill='white' font-weight='600'%3EP%3C/text%3E%3C/svg%3E">
     <style>
+        :root {
+            --primary: #FF8B6A;
+            --primary-soft: #FFB08A;
+            --primary-muted: rgba(255, 139, 106, 0.14);
+            --bg: #FFFCFB;
+            --surface: #FFFFFF;
+            --text: #2A221E;
+            --text-secondary: #6B5E56;
+            --text-muted: #9A8B82;
+            --border: #EDE0D8;
+            --border-light: #F0E6E0;
+            --shadow: 0 8px 32px rgba(42, 34, 30, 0.06);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-pill: 999px;
+            --nav-height: 64px;
+            --max-width: 1080px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            line-height: 1.5;
+        html {
             scroll-behavior: smooth;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        a:focus-visible,
+        button:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 8px;
+            z-index: 200;
+            padding: 8px 16px;
+            background: var(--surface);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            left: 16px;
+        }
+
+        /* —— Nav —— */
         .navbar {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e9e9ef;
+            background: rgba(255, 252, 251, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
             z-index: 100;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 24px;
-            flex-wrap: wrap;
+            padding: 0 24px;
+            height: var(--nav-height);
             gap: 16px;
         }
 
@@ -44,254 +112,556 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            border: none;
+            background: none;
+            text-align: left;
+            font: inherit;
+            color: inherit;
+            padding: 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 650;
             letter-spacing: -0.02em;
-            color: #000;
+            color: var(--text);
             line-height: 1.2;
         }
 
         .tagline {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: #8e8e93;
-            letter-spacing: 0.2px;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 8px;
             align-items: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .nav-links a {
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: #1d1d1f;
-            cursor: pointer;
-            transition: color 0.2s;
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            transition: color 0.2s, background 0.2s;
+            white-space: nowrap;
         }
 
-        .nav-links a:hover,
+        .nav-links a:hover {
+            color: var(--text);
+            background: var(--primary-muted);
+            text-decoration: none;
+        }
+
         .nav-links a.active {
-            color: #0066cc;
+            color: var(--primary);
+            background: var(--primary-muted);
         }
 
         .lang-select {
-            padding: 6px 10px;
-            font-size: 0.85rem;
-            border-radius: 8px;
-            border: 1px solid #d9d9df;
-            background-color: #fff;
+            padding: 7px 10px;
+            font-size: 0.82rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface);
             cursor: pointer;
             font-weight: 500;
+            color: var(--text);
+            margin-left: 4px;
         }
 
+        /* —— Layout —— */
         .section {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 96px 24px;
-            border-bottom: 1px solid #f0f0f4;
+            padding: 80px 24px;
+            scroll-margin-top: calc(var(--nav-height) + 16px);
         }
 
-        .section:last-of-type {
-            border-bottom: none;
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 2.8rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 650;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 16px;
         }
 
         h2 {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            font-weight: 650;
+            letter-spacing: -0.02em;
             margin-bottom: 8px;
-            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+            color: var(--text);
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            max-width: 720px;
+        }
+
+        /* —— Hero —— */
+        .hero {
+            position: relative;
+            padding-top: 48px;
+            padding-bottom: 88px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -40% -20% auto;
+            height: 480px;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 176, 138, 0.35) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+        }
+
+        .value-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 28px 0 24px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(42, 34, 30, 0.04);
+        }
+
+        .entity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 10px 16px;
+            background: var(--primary-muted);
+            border-radius: var(--radius-pill);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .entity-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+            flex-shrink: 0;
+        }
+
+        /* —— Product —— */
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .product-title-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 16px rgba(255, 139, 106, 0.35);
         }
 
         .badge {
             display: inline-block;
-            background-color: #e9e9ef;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #1d1d1f;
-            margin-bottom: 24px;
+            background: var(--primary-muted);
+            color: var(--primary);
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 590;
-            margin: 32px 0 12px;
+        .content-block {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 28px 28px 8px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
         }
 
-        p {
-            font-size: 1.05rem;
-            color: #2c2c2e;
-            margin-bottom: 16px;
+        .content-block p:last-child {
+            margin-bottom: 20px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0 8px;
+        }
+
+        .step-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(42, 34, 30, 0.04);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-muted);
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            max-width: none;
         }
 
         .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            margin: 32px 0 24px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0 32px;
         }
 
-        .feature-item {
-            flex: 1;
-            min-width: 200px;
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .feature-item strong {
-            font-size: 1.1rem;
+        .feature-card:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow);
         }
 
-        .contact-block {
-            background-color: #f9f9fb;
-            border-radius: 24px;
-            padding: 32px;
-            margin: 32px 0;
+        .feature-icon {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            line-height: 1;
         }
 
+        .feature-card p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            max-width: none;
+        }
+
+        .closing-note {
+            padding: 20px 24px;
+            background: linear-gradient(135deg, var(--primary-muted) 0%, rgba(255, 252, 251, 0.8) 100%);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 720px;
+        }
+
+        /* —— Contact —— */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card .label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .contact-card .value {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .contact-card a.value {
+            font-weight: 500;
+        }
+
+        /* —— Footer —— */
         .footer {
             text-align: center;
-            padding: 32px 24px;
-            font-size: 0.8rem;
-            color: #8e8e93;
-            border-top: 1px solid #e9e9ef;
+            padding: 32px 24px 40px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
         }
 
-        @media (max-width: 700px) {
+        .divider-section {
+            border-top: 1px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
             .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
+                padding: 0 16px;
             }
+
             .nav-links {
-                width: 100%;
-                justify-content: space-between;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                max-width: calc(100vw - 120px);
             }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
+
+            .nav-links::-webkit-scrollbar { display: none; }
+
             .section {
-                padding: 64px 20px;
+                padding: 56px 20px;
             }
-            .feature-grid {
-                flex-direction: column;
-                gap: 24px;
+
+            .hero {
+                padding-top: 24px;
+                padding-bottom: 64px;
+            }
+
+            .steps,
+            .feature-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-block {
+                padding: 20px 20px 4px;
             }
         }
     </style>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
 <div id="app">
-    <div class="navbar">
-        <div class="nav-container">
-            <div class="logo-area" @click="scrollToSection('company')">
-                <div class="logo">Pandobal</div>
-                <div class="tagline">Where technology meets humanity</div>
-            </div>
+    <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to content</a>
 
-            <div class="nav-links">
-                <a @click="scrollToSection('company')" :class="{ active: activeSection === 'company' }">{{ t('nav_company') }}</a>
-                <a @click="scrollToSection('products')" :class="{ active: activeSection === 'products' }">{{ t('nav_products') }}</a>
-                <a @click="scrollToSection('contact')" :class="{ active: activeSection === 'contact' }">{{ t('nav_contact') }}</a>
-                <select class="lang-select" v-model="selectedLang" @change="changeLang">
+    <header class="navbar">
+        <div class="nav-container">
+            <button type="button" class="logo-area" id="logo-home" aria-label="Pandobal home">
+                <div class="logo">Pandobal</div>
+                <div class="tagline" data-i18n="nav_tagline">Where technology meets humanity</div>
+            </button>
+
+            <nav class="nav-links" aria-label="Main">
+                <a href="#company" data-nav="company" data-i18n="nav_company">Company</a>
+                <a href="#products" data-nav="products" data-i18n="nav_products">Products</a>
+                <a href="#contact" data-nav="contact" data-i18n="nav_contact">Contact</a>
+                <select class="lang-select" id="lang-select" aria-label="Language">
                     <option value="en">English</option>
                     <option value="zh">简体中文</option>
                     <option value="hk">繁體中文</option>
                 </select>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="company" class="section hero divider-section">
+            <div class="hero-inner">
+                <span class="section-label" data-i18n="nav_company">Company</span>
+                <h1 data-i18n="company_name">Pandobal Limited</h1>
+                <p class="lead" data-i18n="brand_positioning">Where technology meets humanity.</p>
+                <p data-i18n="mission"></p>
+                <div class="value-pills" id="value-pills" role="list"></div>
+                <p data-i18n="name_story"></p>
+                <div class="entity-badge" data-i18n="hk_entity">Legally registered company in Hong Kong.</div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- 公司区块 -->
-    <div id="company" class="section">
-        <h1>{{ t('company_name') }}</h1>
-        <p style="font-size: 1.2rem; font-weight: 500;">{{ t('brand_positioning') }}</p>
-        <p>{{ t('mission') }}</p>
-        <p><strong>{{ t('values_title') }}</strong><br>{{ t('values') }}</p>
-        <p>{{ t('name_story') }}</p>
-        <p style="margin-top: 24px;">✅ {{ t('hk_entity') }}</p>
-    </div>
+        <section id="products" class="section divider-section">
+            <div class="product-header">
+                <div>
+                    <span class="section-label" data-i18n="nav_products">Products</span>
+                    <div class="product-title-row">
+                        <div class="product-icon" aria-hidden="true">📱</div>
+                        <h2>Collateify</h2>
+                        <span class="badge" data-i18n="coming_soon">Coming soon</span>
+                    </div>
+                    <p class="lead" style="margin-top: 12px; margin-bottom: 0;" data-i18n="product_tagline"></p>
+                </div>
+            </div>
 
-    <!-- 产品区块：Collateify 完整介绍 + Coming soon -->
-    <div id="products" class="section">
-        <h2>📱 Collateify</h2>
-        <div class="badge">{{ t('coming_soon') }}</div>
-        <p style="font-size: 1.2rem;">{{ t('product_tagline') }}</p>
+            <div class="content-block">
+                <h3 data-i18n="problem_title"></h3>
+                <p data-i18n="problem_desc"></p>
+            </div>
 
-        <h3>{{ t('problem_title') }}</h3>
-        <p>{{ t('problem_desc') }}</p>
+            <div class="content-block">
+                <h3 data-i18n="solution_title"></h3>
+                <p data-i18n="solution_desc"></p>
+            </div>
 
-        <h3>{{ t('solution_title') }}</h3>
-        <p>{{ t('solution_desc') }}</p>
+            <h3 style="margin: 32px 0 4px;" data-i18n="how_it_works_title">How it works</h3>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3 data-i18n="step1_title"></h3>
+                    <p data-i18n="step1_desc"></p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3 data-i18n="step2_title"></h3>
+                    <p data-i18n="step2_desc"></p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3 data-i18n="step3_title"></h3>
+                    <p data-i18n="step3_desc"></p>
+                </div>
+            </div>
 
-        <h3>{{ t('how_it_works_title') }}</h3>
-        <p>{{ t('how_it_works_desc') }}</p>
+            <div class="content-block" style="margin-top: 24px;">
+                <h3 data-i18n="progress_title"></h3>
+                <p data-i18n="progress_desc"></p>
+            </div>
 
-        <h3>{{ t('progress_title') }}</h3>
-        <p>{{ t('progress_desc') }}</p>
+            <h3 style="margin: 32px 0 4px;" data-i18n="features_title">More features</h3>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">📌</div>
+                    <h3 data-i18n="feature_bookmark"></h3>
+                    <p data-i18n="feature_bookmark_desc"></p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🧠</div>
+                    <h3 data-i18n="feature_smart"></h3>
+                    <p data-i18n="feature_smart_desc"></p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">📊</div>
+                    <h3 data-i18n="feature_stats"></h3>
+                    <p data-i18n="feature_stats_desc"></p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">✋</div>
+                    <h3 data-i18n="feature_gesture"></h3>
+                    <p data-i18n="feature_gesture_desc"></p>
+                </article>
+            </div>
 
-        <h3>{{ t('features_title') }}</h3>
-        <div class="feature-grid">
-            <div class="feature-item"><strong>📌 {{ t('feature_bookmark') }}</strong><br>{{ t('feature_bookmark_desc') }}</div>
-            <div class="feature-item"><strong>🧠 {{ t('feature_smart') }}</strong><br>{{ t('feature_smart_desc') }}</div>
-            <div class="feature-item"><strong>📊 {{ t('feature_stats') }}</strong><br>{{ t('feature_stats_desc') }}</div>
-            <div class="feature-item"><strong>✋ {{ t('feature_gesture') }}</strong><br>{{ t('feature_gesture_desc') }}</div>
-        </div>
+            <div class="content-block">
+                <h3 data-i18n="why_title"></h3>
+                <p data-i18n="why_desc"></p>
+            </div>
 
-        <h3>{{ t('why_title') }}</h3>
-        <p>{{ t('why_desc') }}</p>
-        <p style="margin-top: 24px;">✨ {{ t('closing') }}</p>
-    </div>
+            <p class="closing-note" data-i18n="closing"></p>
+        </section>
 
-    <!-- 联系区块 -->
-    <div id="contact" class="section">
-        <h2>{{ t('contact_title') }}</h2>
-        <div class="contact-block">
-            <p>📧 <strong>{{ t('email_label') }}</strong><br>
-            <a :href="'mailto:' + t('contact_email')">{{ t('contact_email') }}</a></p>
-            <p>📞 <strong>{{ t('phone_label') }}</strong><br>
-            {{ t('contact_phone') }}</p>
-            <p>📍 <strong>{{ t('address_label') }}</strong><br>
-            {{ t('office_address') }}</p>
-        </div>
-    </div>
+        <section id="contact" class="section divider-section">
+            <span class="section-label" data-i18n="nav_contact">Contact</span>
+            <h2 data-i18n="contact_title">Contact</h2>
+            <p class="lead" data-i18n="contact_intro"></p>
 
-    <div class="footer">
-        © 2025 Pandobal Limited · {{ t('footer_rights') }}
-    </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="label" data-i18n="email_label">Business Email</div>
+                    <a class="value" id="contact-email" href="mailto:hello@pandobal.com">hello@pandobal.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="label" data-i18n="phone_label">Phone</div>
+                    <a class="value" id="contact-phone" href="tel:+85246092743">+852 4609 2743</a>
+                </div>
+                <div class="contact-card">
+                    <div class="label" data-i18n="address_label">Registered Office (Hong Kong)</div>
+                    <div class="value" data-i18n="office_address"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        © <span id="footer-year"></span> Pandobal Limited · <span data-i18n="footer_rights">All rights reserved</span>
+    </footer>
 </div>
 
 <script>
-    const { createApp, ref, onMounted, onUnmounted } = Vue
-
-    createApp({
-        setup() {
-            const translations = {
+    const translations = {
                 en: {
+                    skip_to_content: 'Skip to content',
+                    lang_label: 'Language',
+                    nav_tagline: 'Where technology meets humanity',
                     nav_company: 'Company',
                     nav_products: 'Products',
                     nav_contact: 'Contact',
                     company_name: 'Pandobal Limited',
                     brand_positioning: 'Where technology meets humanity.',
                     mission: 'To enrich people’s lives through thoughtful technology — whether through useful tools, meaningful connections, or new ways of digital experience.',
-                    values_title: 'Our values',
-                    values: 'Thoughtful · Human · Open',
+                    values_list: ['Thoughtful', 'Human', 'Open'],
                     name_story: 'The name “Pandobal” comes from the idea of hoping for and cherishing what truly matters. We build technology that respects people’s time, attention, and digital life.',
                     hk_entity: 'Legally registered company in Hong Kong.',
                     coming_soon: 'Coming soon',
@@ -301,7 +671,12 @@
                     solution_title: 'A simple, fun, stress‑free way',
                     solution_desc: 'Break your library into small chunks — by month or week. One small period at a time. Then swipe to decide: keep or delete.',
                     how_it_works_title: 'How it works',
-                    how_it_works_desc: 'Swipe right → keep / Swipe left → delete (left‑hand mode available, switch anytime). View metadata when you need. After finishing a period, review your keeps and deletes one last time, make any adjustments — and you’re done.',
+                    step1_title: 'Pick a period',
+                    step1_desc: 'Choose a month or week — one manageable slice of your library at a time.',
+                    step2_title: 'Swipe to decide',
+                    step2_desc: 'Swipe right to keep, left to delete. Left‑hand mode available. View photo details anytime.',
+                    step3_title: 'Review & finish',
+                    step3_desc: 'Confirm your keeps and deletes, adjust if needed — then move on to the next period.',
                     progress_title: 'Progress & flexibility',
                     progress_desc: 'Completed periods are moved to a “done” list (you can revisit anytime). Need a break? Just leave. The home screen shows a progress ring so you always know how much is left.',
                     features_title: 'More features',
@@ -315,8 +690,9 @@
                     feature_gesture_desc: 'Left‑hand support, freely switchable.',
                     why_title: 'Why we built Collateify',
                     why_desc: 'Your camera roll shouldn’t feel chaotic. You deserve to revisit your good memories — without being distracted by random screenshots, temporary files, or clutter.',
-                    closing: 'That’s exactly why we built Collateify. Hope you enjoy it, and happy organizing 📱',
+                    closing: 'That’s exactly why we built Collateify. Hope you enjoy it, and happy organizing.',
                     contact_title: 'Contact',
+                    contact_intro: 'Business inquiries and partnerships — we’d love to hear from you.',
                     email_label: 'Business Email',
                     contact_email: 'hello@pandobal.com',
                     phone_label: 'Phone',
@@ -326,14 +702,16 @@
                     footer_rights: 'All rights reserved'
                 },
                 zh: {
+                    skip_to_content: '跳到主要内容',
+                    lang_label: '语言',
+                    nav_tagline: '科技与人文的交汇点',
                     nav_company: '公司',
                     nav_products: '产品',
                     nav_contact: '联系',
                     company_name: '香港盼多宝有限公司',
                     brand_positioning: '科技与人文的交汇点。',
                     mission: '通过有思考的科技，丰富人们的生活 —— 无论是有用的工具、有意义的连接，还是新的数字体验方式。',
-                    values_title: '我们的价值观',
-                    values: '有思考力 · 有人文感 · 开放',
+                    values_list: ['有思考力', '有人文感', '开放'],
                     name_story: '盼多宝 这个名字，源于“期盼并珍惜真正重要的事物”。我们相信，科技应该尊重人的时间、精力与数字生活。',
                     hk_entity: '香港合法注册公司。',
                     coming_soon: '即将上线',
@@ -343,7 +721,12 @@
                     solution_title: '简单、有趣、无压力的方式',
                     solution_desc: '把照片拆成「月」或「周」的小时间段，一次只整理一小块。进入整理界面后，滑动决定：保留什么，删除什么。',
                     how_it_works_title: '使用方式',
-                    how_it_works_desc: '向右滑 → 保留 / 向左滑 → 删除（支持左手模式，可随时切换）。也可查看元数据。完成一个月后，可以对保留与删除的照片做最后确认，调整完就完成了。',
+                    step1_title: '选择时间段',
+                    step1_desc: '按月或按周，一次只整理一小块，不再被整库照片压垮。',
+                    step2_title: '滑动决定',
+                    step2_desc: '向右滑保留，向左滑删除。支持左手模式，可随时查看照片详情。',
+                    step3_title: '确认完成',
+                    step3_desc: '对保留与删除做最后确认，调整完毕即可进入下一段。',
                     progress_title: '进度与弹性',
                     progress_desc: '完成整理的时间段会被折叠到「已完成」列表中（随时可重新访问）。中途想休息也没问题，主画面会显示进度环。',
                     features_title: '更多功能',
@@ -357,8 +740,9 @@
                     feature_gesture_desc: '支持左手操作模式，可自由切换。',
                     why_title: '为什么做 Collateify',
                     why_desc: '手机相册不该这么混乱。你值得好好回顾美好回忆，而不是被无关截图、临时文件或其他杂物干扰。',
-                    closing: '这就是我们做 Collateify 的原因。希望你喜欢，祝你整理愉快 📱',
+                    closing: '这就是我们做 Collateify 的原因。希望你喜欢，祝你整理愉快。',
                     contact_title: '联系',
+                    contact_intro: '商务合作与咨询，欢迎与我们联系。',
                     email_label: '业务邮箱',
                     contact_email: 'hello@pandobal.com',
                     phone_label: '联系电话',
@@ -368,14 +752,16 @@
                     footer_rights: '版权所有'
                 },
                 hk: {
+                    skip_to_content: '跳到主要內容',
+                    lang_label: '語言',
+                    nav_tagline: '科技與人文的交匯點',
                     nav_company: '公司',
                     nav_products: '產品',
                     nav_contact: '聯絡',
                     company_name: '香港盼多寶有限公司',
                     brand_positioning: '科技與人文的交匯點。',
                     mission: '通過有思考的科技，豐富人們的生活 —— 無論是有用的工具、有意義的連接，還是新的數位體驗方式。',
-                    values_title: '我們的價值觀',
-                    values: '有思考力 · 有人文感 · 開放',
+                    values_list: ['有思考力', '有人文感', '開放'],
                     name_story: '盼多寶 這個名字，源於「期盼並珍惜真正重要的事物」。我們相信，科技應該尊重人的時間、精力與數位生活。',
                     hk_entity: '香港合法註冊公司。',
                     coming_soon: '即將上線',
@@ -385,7 +771,12 @@
                     solution_title: '簡單、有趣、無壓力的方式',
                     solution_desc: '把照片拆成「月」或「週」的小時間段，一次只整理一小塊。進入整理界面後，滑動決定：保留什麼，刪除什麼。',
                     how_it_works_title: '使用方式',
-                    how_it_works_desc: '向右滑 → 保留 / 向左滑 → 刪除（支援左手模式，可隨時切換）。也可查看詮釋資料。完成一個月後，可以對保留與刪除的照片做最後確認，調整完就完成了。',
+                    step1_title: '選擇時間段',
+                    step1_desc: '按月或按週，一次只整理一小塊，不再被整庫照片壓垮。',
+                    step2_title: '滑動決定',
+                    step2_desc: '向右滑保留，向左滑刪除。支援左手模式，可隨時查看相片詳情。',
+                    step3_title: '確認完成',
+                    step3_desc: '對保留與刪除做最後確認，調整完畢即可進入下一段。',
                     progress_title: '進度與彈性',
                     progress_desc: '完成整理的時間段會被摺疊到「已完成」列表中（隨時可重新訪問）。中途想休息也沒問題，主畫面會顯示進度環。',
                     features_title: '更多功能',
@@ -399,8 +790,9 @@
                     feature_gesture_desc: '支援左手操作模式，可自由切換。',
                     why_title: '為什麼做 Collateify',
                     why_desc: '手機相簿不該這麼混亂。你值得好好回顧美好回憶，而不是被無關截圖、臨時文件或其他雜物干擾。',
-                    closing: '這就是我們做 Collateify 的原因。希望你喜歡，祝你整理愉快 📱',
+                    closing: '這就是我們做 Collateify 的原因。希望你喜歡，祝你整理愉快。',
                     contact_title: '聯絡',
+                    contact_intro: '商務合作與諮詢，歡迎與我們聯絡。',
                     email_label: '業務郵箱',
                     contact_email: 'hello@pandobal.com',
                     phone_label: '聯絡電話',
@@ -411,75 +803,115 @@
                 }
             }
 
-            const getBrowserLang = () => {
-                const browserLang = navigator.language || navigator.userLanguage || ''
-                if (browserLang.startsWith('zh') && (browserLang.includes('HK') || browserLang.includes('TW') || browserLang.includes('Hant'))) return 'hk'
-                if (browserLang.startsWith('zh')) return 'zh'
-                return 'en'
-            }
+    const htmlLangMap = { en: 'en', zh: 'zh-Hans', hk: 'zh-Hant' }
+    const titleMap = { en: 'Pandobal · Collateify', zh: '盼多宝 · Collateify', hk: '盼多寶 · Collateify' }
 
-            const getInitialLang = () => {
-                const saved = localStorage.getItem('pandobal_lang')
-                if (saved && translations[saved]) return saved
-                const browserLang = getBrowserLang()
-                if (translations[browserLang]) return browserLang
-                return 'en'
-            }
+    function getBrowserLang() {
+        const browserLang = navigator.language || navigator.userLanguage || ''
+        if (browserLang.startsWith('zh') && (browserLang.includes('HK') || browserLang.includes('TW') || browserLang.includes('Hant'))) return 'hk'
+        if (browserLang.startsWith('zh')) return 'zh'
+        return 'en'
+    }
 
-            const lang = ref(getInitialLang())
-            const selectedLang = ref(lang.value)
-            const activeSection = ref('company')
+    function getInitialLang() {
+        const saved = localStorage.getItem('pandobal_lang')
+        if (saved && translations[saved]) return saved
+        const browserLang = getBrowserLang()
+        if (translations[browserLang]) return browserLang
+        return 'en'
+    }
 
-            const t = (key) => translations[lang.value]?.[key] || key
+    let currentLang = getInitialLang()
 
-            const changeLang = () => {
-                lang.value = selectedLang.value
-                localStorage.setItem('pandobal_lang', lang.value)
-                setTimeout(() => updateActiveSection(), 50)
-            }
+    function t(key) {
+        return translations[currentLang]?.[key] || key
+    }
 
-            const scrollToSection = (sectionId) => {
-                const el = document.getElementById(sectionId)
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-            }
+    function applyLang(lang) {
+        currentLang = lang
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const key = el.getAttribute('data-i18n')
+            if (key) el.textContent = t(key)
+        })
 
-            const updateActiveSection = () => {
-                const sections = ['company', 'products', 'contact']
-                let bestMatch = 'company'
-                for (const id of sections) {
-                    const el = document.getElementById(id)
-                    if (el) {
-                        const rect = el.getBoundingClientRect()
-                        if (rect.top <= 120 && rect.bottom >= 120) {
-                            bestMatch = id
-                            break
-                        }
-                    }
+        const pills = document.getElementById('value-pills')
+        if (pills) {
+            pills.innerHTML = (translations[lang]?.values_list || [])
+                .map((v) => `<span class="pill" role="listitem">${v}</span>`)
+                .join('')
+        }
+
+        const email = document.getElementById('contact-email')
+        const phone = document.getElementById('contact-phone')
+        if (email) {
+            email.textContent = t('contact_email')
+            email.href = 'mailto:' + t('contact_email')
+        }
+        if (phone) {
+            phone.textContent = t('contact_phone')
+            phone.href = 'tel:' + t('contact_phone').replace(/\s/g, '')
+        }
+
+        document.documentElement.lang = htmlLangMap[lang] || 'en'
+        document.title = titleMap[lang] || titleMap.en
+        const ogLocale = document.querySelector('meta[property="og:locale"]')
+        if (ogLocale) {
+            ogLocale.setAttribute('content', lang === 'en' ? 'en_US' : lang === 'zh' ? 'zh_CN' : 'zh_HK')
+        }
+
+        const langSelect = document.getElementById('lang-select')
+        if (langSelect) langSelect.value = lang
+
+        const skipLabel = document.querySelector('.skip-link')
+        if (skipLabel) skipLabel.setAttribute('aria-label', t('skip_to_content'))
+        const langSelectEl = document.getElementById('lang-select')
+        if (langSelectEl) langSelectEl.setAttribute('aria-label', t('lang_label'))
+    }
+
+    function scrollToSection(sectionId) {
+        const el = document.getElementById(sectionId)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    function updateActiveSection() {
+        const sections = ['company', 'products', 'contact']
+        let bestMatch = 'company'
+        for (const id of sections) {
+            const el = document.getElementById(id)
+            if (el) {
+                const rect = el.getBoundingClientRect()
+                if (rect.top <= 120 && rect.bottom >= 120) {
+                    bestMatch = id
+                    break
                 }
-                activeSection.value = bestMatch
-            }
-
-            let scrollHandler = null
-            onMounted(() => {
-                scrollHandler = () => updateActiveSection()
-                window.addEventListener('scroll', scrollHandler)
-                updateActiveSection()
-            })
-
-            onUnmounted(() => {
-                if (scrollHandler) window.removeEventListener('scroll', scrollHandler)
-            })
-
-            return {
-                lang,
-                selectedLang,
-                activeSection,
-                t,
-                changeLang,
-                scrollToSection
             }
         }
-    }).mount('#app')
+        document.querySelectorAll('[data-nav]').forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('data-nav') === bestMatch)
+        })
+    }
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear()
+
+    document.getElementById('logo-home').addEventListener('click', () => scrollToSection('company'))
+
+    document.querySelectorAll('[data-nav]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault()
+            scrollToSection(link.getAttribute('data-nav'))
+        })
+    })
+
+    document.getElementById('lang-select').addEventListener('change', (e) => {
+        const lang = e.target.value
+        localStorage.setItem('pandobal_lang', lang)
+        applyLang(lang)
+        setTimeout(updateActiveSection, 50)
+    })
+
+    applyLang(currentLang)
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    updateActiveSection()
 </script>
 </body>
 </html>
